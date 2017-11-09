@@ -1,3 +1,23 @@
 body {
   background-color: #BADA55;
 }
+
+.dashboard {
+  margin-top: 40px;
+}
+
+button.dashboard-button {
+  width: 95%;
+  height: 100px;
+  font-size: 2rem;
+  margin: 2%;
+  cursor: pointer;
+}
+
+button.course-button {
+  width: 95%;
+  height: 100px;
+  font-size: 2rem;
+  margin: 2%;
+  cursor: pointer;
+}
