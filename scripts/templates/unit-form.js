@@ -1,5 +1,5 @@
-const unitFormTemplate = (method, unit) => {
-  const buttonText = method === 'POST' ? 'Create' : 'Save'
+const unitFormTemplate = (courseId, unit) => {
+  const buttonText = unit ? 'Save' : 'Create'
   const { title, summary } = unit ? unit : { title: '', summary: '' }
   const id = unit ? 'edit' : 'create' 
   const displayTitle = unit ? 'Edit Unit' : 'Create a New Unit'

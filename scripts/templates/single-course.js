@@ -17,6 +17,7 @@ const singleCourseTemplate = (course, units) => {
         <p>${description}</p>
         <a href="#/courses/${id}/edit">Edit course</a>
       </div>
+      <a href="#/courses/">Back to courses</a>
     </div>
   </div>
 `

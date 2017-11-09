@@ -1,8 +1,16 @@
 displayOneUnit = (courseId, unitId) => {
   CourseUnit.show(courseId, unitId).then(result => {
+
     window.location.hash = `#/courses/${courseId}/units/${unitId}`
     const [unit] = result.data.unit
-    document.getElementById('main-content').innerHTML = singleUnitTemplate(unit)
+    UnitLesson.index(unitId).then(result => {
+      const lessons = result.data.lessons
+      if(lessons.length) {
+        document.getElementById('main-content').innerHTML = singleUnitTemplate(unit, lessons)
+      } else {
+        document.getElementById('main-content').innerHTML = singleUnitTemplate(unit)
+      }
+    })
   })
 }
 

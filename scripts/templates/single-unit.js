@@ -1,8 +1,9 @@
 const singleUnitTemplate = (unit, lessons) => {
+  const hash = window.location.hash
   const { id, title, summary } = unit
 
   const lessonList = lessons
-                   ? lessons.map(lesson => `<li class="list-group-item"><a href="/lessons/${lesson.id}">${lesson.title}</a></li>`).join('')
+                   ? lessons.map(lesson => `<li class="list-group-item"><a href="#/courses/${unit.course_id}/units/${id}/lessons/${lesson.id}">${lesson.title}</a></li>`).join('')
                    : ''
 
   return `
@@ -14,6 +15,7 @@ const singleUnitTemplate = (unit, lessons) => {
         <div class="col-sm-6 col-lg-4">
           <ul class="list-group">
             ${lessonList}
+            <li class="list-group-item list-group-item-info"><a href="#/units/${id}/lessons/new">Add New Lesson</a></li>
           </ul>
         </div>
         <div class="col-sm-6 col-lg-8">
@@ -21,7 +23,7 @@ const singleUnitTemplate = (unit, lessons) => {
           <a href="#/courses/${unit.course_id}/units/${id}/edit">Edit</a>
         </div>
       </div>
-      <a href="#">Home</a>
+      <a href="#/courses/${unit.course_id}">Back</a>
     </div>
   `
 }

@@ -31,7 +31,16 @@ const handleHashChange = () => {
     case 5:
       if(hash[4] === 'edit') {
         displayUnitForm(hash[1],hash[3])
-      } 
+      } else {
+        displayOneUnit(hash[1], hash[3])
+      }
+      break
+    case 6: 
+      if(hash[5] === 'new') {
+        displayLessonForm(hash[1],hash[3])
+      } else {
+        displayOneLesson(hash[1],hash[3],hash[5])
+      }
   } 
 }
 
