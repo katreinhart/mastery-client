@@ -21,6 +21,12 @@ const handleHashChange = () => {
       if(hash[2] === 'edit') {
         displayCourseForm(hash[1])
       }
+      break
+    case 4:
+      if(hash[3] === 'new') {
+        console.log('make new unit')
+        displayUnitForm(hash[1])
+      }
   } 
 }
 
