@@ -7,15 +7,19 @@ const handleHashChange = () => {
       homeView.init()
       break
     case 1: case 2: 
-      if(hash[1] && hash[0] === 'courses') {
+      if(hash[1] === 'new') {
+        displayCourseForm()
+      }
+      else if(hash[1] && hash[0] === 'courses') {
         displayOneCourse(hash[1])
       } else if(hash[0] === 'courses') {
         displayCourses()
       }
       else if (hash[0] === 'classes') {}// classView.init() 
       break;
-
-  }
+    case 3: 
+      
+  } 
 }
 
 window.addEventListener('hashchange', handleHashChange)
