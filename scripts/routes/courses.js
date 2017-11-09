@@ -1,7 +1,8 @@
-window.coursesView = {
-  init() {
-    window.location.hash = '#/courses'
-    nav.init()
-    displayCourses()
+window.Course = {
+  index () {
+    return axios.get(`${baseURL}/courses`)
+  },
+  getOne(id) {
+    return axios.get(`${baseURL}/courses/${id}`)
   }
 }
