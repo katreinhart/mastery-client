@@ -15,7 +15,7 @@ const handleHashChange = () => {
       } else if(hash[0] === 'courses') {
         displayCourses()
       }
-      else if (hash[0] === 'classes') {}// classView.init() 
+      else if (hash[0] === 'classes') {}
       break;
     case 3: 
       if(hash[2] === 'edit') {
@@ -24,9 +24,14 @@ const handleHashChange = () => {
       break
     case 4:
       if(hash[3] === 'new') {
-        console.log('make new unit')
         displayUnitForm(hash[1])
+      } else {
+        displayOneUnit(hash[1], hash[3])
       }
+    case 5:
+      if(hash[4] === 'edit') {
+        displayUnitForm(hash[1],hash[3])
+      } 
   } 
 }
 

@@ -2,12 +2,13 @@ const unitFormTemplate = (method, unit) => {
   const buttonText = method === 'POST' ? 'Create' : 'Save'
   const { title, summary } = unit ? unit : { title: '', summary: '' }
   const id = unit ? 'edit' : 'create' 
+  const displayTitle = unit ? 'Edit Unit' : 'Create a New Unit'
 
   return `<div class="container">
     <div class="row">
       <div class="col-sm-2"></div>
       <div class="col-sm-8">
-        <h3>Create a New Unit</h3>
+        <h3>${displayTitle}</h3>
         <form id="${id}">
           <div class="form-group">
             <label for="unitTitle">Unit Title</label>

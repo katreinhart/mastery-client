@@ -1,4 +1,4 @@
-nav.init()
+// nav.init()
 
 displayCourseForm = (id) => {
   if(id) {

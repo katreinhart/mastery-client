@@ -1,6 +1,6 @@
 const singleCourseTemplate = (course, units) => {
   const { id, title, description } = course 
-  const unitsList = units.map(unit => `<li><a href="#/courses/${id}/units/${unit.id}">${unit.title}</a></li>`).join('')
+  const unitsList = units.map(unit => `<li class="list-group-item"><a href="#/courses/${id}/units/${unit.id}">${unit.title}</a></li>`).join('')
   return `
   <div class="container">
     <div class="row">
@@ -8,9 +8,9 @@ const singleCourseTemplate = (course, units) => {
     </div>
     <div class="row">
       <div class="col-sm-6 col-lg-4">
-        <ul>
+        <ul  class="list-group">
           ${unitsList}
-          <li><a href="#/courses/${id}/units/new">Create new unit</a></li>
+          <li class="list-group-item list-group-item-info"><a href="#/courses/${id}/units/new">Create new unit</a></li>
         </ul>
       </div>
       <div class="col-sm-6 col-lg-8">

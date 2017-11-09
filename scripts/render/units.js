@@ -1,5 +1,6 @@
 displayOneUnit = (courseId, unitId) => {
   CourseUnit.show(courseId, unitId).then(result => {
+    window.location.hash = `#/courses/${courseId}/units/${unitId}`
     const [unit] = result.data.unit
     document.getElementById('main-content').innerHTML = singleUnitTemplate(unit)
   })
@@ -7,8 +8,18 @@ displayOneUnit = (courseId, unitId) => {
 
 displayUnitForm = (courseId, unitId) => {
   if(unitId) {
-    courseUnit.show(courseId, unitId).then(result => {
-      document.getElementById('main-content').innerHTML = unitFormTemplate(courseId, unitId)
+    CourseUnit.show(courseId, unitId).then(result => {
+      const [unit] = result.data.unit
+      document.getElementById('main-content').innerHTML = unitFormTemplate(courseId, unit)
+      document.getElementById('edit').addEventListener('submit', (e) => {
+        e.preventDefault()
+        const newTitle = document.getElementById('unitTitle').value
+        const newSummary = document.getElementById('unitSummary').value
+        CourseUnit.update(courseId, unitId, { title: newTitle, summary: newSummary }).then(response => {
+          const { unit } = response.data
+          displayOneUnit(courseId, unit.id)
+        })
+      })
     })
   } else {
     document.getElementById('main-content').innerHTML = unitFormTemplate(courseId)
