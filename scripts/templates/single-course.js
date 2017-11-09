@@ -1,5 +1,4 @@
 const singleCourseTemplate = (course, units) => {
-  console.log(units)
   const { title, description } = course 
   const unitsList = units.map(unit => `<li><a href="#/units/${unit.id}" id="unit-link-${unit.id}">${unit.title}</a></li>`)
   return `
