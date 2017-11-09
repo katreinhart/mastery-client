@@ -12,8 +12,11 @@ displayCourses = (courses) => {
 displayOneCourse = (id) => {
   Course.getOne(id).then(result => {
     const { course } = result.data
-    document.getElementById('main-content').innerHTML = ''
-    document.getElementById('main-content').innerHTML = singleCourseTemplate()
+    CourseUnit.index(course.id).then(result => {
+      const { units } = result.data
+      console.log(units)
+      document.getElementById('main-content').innerHTML = singleCourseTemplate(course, units)
+    }) 
   })
 }
 
