@@ -1,4 +1,5 @@
 const courseFormTemplate = (method, course) => {
+  const buttonText = method === 'POST' ? 'Create' : 'Save'
   const { title, description } = course ? course : { title: '', description: '' }
   const id = course ? 'edit' : 'create' 
 
@@ -10,13 +11,13 @@ const courseFormTemplate = (method, course) => {
           <form id="${id}">
             <div class="form-group">
               <label for="courseTitle">Course Title</label>
-              <input required type="text" class="form-control" id="courseTitle" aria-describedby="titleHelp" placeholder="e.g. Earth Science" value=${title}>
+              <input required type="text" class="form-control" id="courseTitle" aria-describedby="titleHelp" placeholder="e.g. Earth Science" value="${title}">
             </div>
             <div class="form-group">
               <label for="courseDescription">Course Description</label>
               <textarea required class="form-control" id="courseDescription" rows="3">${description}</textarea>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">${buttonText}</button>
           </form>
       </div>
     </div>

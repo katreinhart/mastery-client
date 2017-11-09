@@ -1,4 +1,5 @@
 displayCourses = (courses) => {
+  window.location.hash = `#/courses`
   nav.init()
   Course.index().then(result => {
     const { courses } = result.data
@@ -8,6 +9,7 @@ displayCourses = (courses) => {
 }
 
 displayOneCourse = (id) => {
+  window.location.hash = `#/courses/${id}`
   nav.init()
   Course.getOne(id).then(result => {
     const { course } = result.data

@@ -18,7 +18,9 @@ const handleHashChange = () => {
       else if (hash[0] === 'classes') {}// classView.init() 
       break;
     case 3: 
-      
+      if(hash[2] === 'edit') {
+        displayCourseForm(hash[1])
+      }
   } 
 }
 
