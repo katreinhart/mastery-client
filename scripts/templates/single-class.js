@@ -1,6 +1,7 @@
 const singleClassTemplate = (data, roster) => {
-  const { id, name } = data
-  const teacherName = data.preferred_name
+  console.log(data)
+  const { class_id, name } = data
+  const teacherName = data.teacher_name
 
   const studentRoster = roster
                    ? roster.map(student => `<li class="list-group-item"><a href="#/students/${student.id}">${student.preferred_name} ${student.last_name}</a></li>`).join('')
@@ -15,7 +16,7 @@ const singleClassTemplate = (data, roster) => {
         <div class="col-sm-4 col-lg-3">
           <ul class="list-group">
             ${studentRoster}
-            <li class="list-group-item list-group-item-info"><a href="#/classes/${id}/students/new">Add New Student</a></li>
+            <li class="list-group-item list-group-item-info"><a href="#/classes/${class_id}/students/new">Add New Student</a></li>
           </ul>
         </div>
         <div class="col-sm-8 col-lg-9">
