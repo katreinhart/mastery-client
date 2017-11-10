@@ -57,6 +57,12 @@ const handleHashChange = () => {
         displayNewStudentForm(hash[1])
       }
     }
+  } else if (hash[0] === 'students') {
+    if(hash.length === 1) {
+      displayAllStudents()
+    } else if (hash.length === 2) {
+      displayOneStudent(hash[1])
+    }
   }
 }
 
