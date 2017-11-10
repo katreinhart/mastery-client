@@ -15,7 +15,7 @@ const singleUnitTemplate = (unit, lessons) => {
         <div class="col-sm-6 col-lg-4">
           <ul class="list-group">
             ${lessonList}
-            <li class="list-group-item list-group-item-info"><a href="#/units/${id}/lessons/new">Add New Lesson</a></li>
+            <li class="list-group-item list-group-item-info"><a href="#/courses/${unit.course_id}/units/${id}/lessons/new">Add New Lesson</a></li>
           </ul>
         </div>
         <div class="col-sm-6 col-lg-8">

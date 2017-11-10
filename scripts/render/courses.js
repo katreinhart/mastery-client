@@ -19,5 +19,3 @@ displayOneCourse = (id) => {
     }) 
   })
 }
-
-
