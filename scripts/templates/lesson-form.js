@@ -1,6 +1,6 @@
 const lessonFormTemplate = (courseId, unitId, lesson) => {
   const buttonText = lesson ? 'Save' : 'Create'
-  const { title, summary } = lesson ? lesson : { title: '', summary: '' }
+  const { title, content } = lesson ? lesson : { title: '', summary: '' }
   const id = lesson ? 'edit' : 'create' 
   const displayTitle = lesson ? 'Edit Lesson' : 'Create a New Lesson'
 
@@ -16,7 +16,7 @@ const lessonFormTemplate = (courseId, unitId, lesson) => {
           </div>
           <div class="form-group">
             <label for="lessonContent">Lesson Content</label>
-            <textarea required class="form-control" id="lessonContent" rows="3">${summary}</textarea>
+            <textarea required class="form-control" id="lessonContent" rows="3">${content}</textarea>
           </div>
           <button type="submit" id="submit-lesson" class="btn btn-primary">${buttonText}</button>
         </form>

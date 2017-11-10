@@ -1,7 +1,7 @@
 const singleLessonTemplate = (lesson) => {
-  let hash = window.location.hash.split('/')
+  const hash = window.location.hash.split('/').filter(item => item !== "")
   hash.pop()
-  hash = hash.join('/')
+  const back = hash.join('/')
   const { id, title, content } = lesson 
   return `
   <div class="container">
@@ -14,9 +14,9 @@ const singleLessonTemplate = (lesson) => {
       </div>
       <div class="col-sm-6 col-lg-8">
         <p>${content}</p>
-        <a href="${hash}/${id}/edit">Edit lesson</a>
+        <a href="${back}/${id}/edit">Edit lesson</a>
       </div>
-      <a href="${hash}/">Back to lessons</a>
+      <a href="${back}/">Back to lessons</a>
     </div>
   </div>
 `

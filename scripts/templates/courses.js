@@ -7,7 +7,7 @@ const coursesTemplate = (courses) => {
     courseDiv.classList = 'col-sm-6 col-md-4'
 
     const courseButton = document.createElement('a')
-    courseButton.classList = 'btn btn-danger course-button'
+    courseButton.classList = 'btn btn-info course-button'
     courseButton.textContent = course.title
     courseButton.href = `#/courses/${course.id}`
 
@@ -17,7 +17,7 @@ const coursesTemplate = (courses) => {
   })
   const newCourseButton = document.createElement('a')
   newCourseButton.textContent = "Add new course"
-  newCourseButton.classList = 'btn btn-danger course-button'
+  newCourseButton.classList = 'btn btn-success course-button'
   newCourseButton.href = `#/courses/new`
   
   courseList.appendChild(newCourseButton)

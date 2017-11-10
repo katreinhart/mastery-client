@@ -34,6 +34,10 @@ const handleHashChange = () => {
     } else {
       displayOneLesson(hash[1],hash[3],hash[5])
     }
+  } else if(hash.length === 7) {
+    if(hash[6] === 'edit') {
+      displayLessonForm(hash[1], hash[3], hash[5])
+    } 
   }
 
   // switch(hash.length) {

@@ -16,6 +16,7 @@ displayLessonForm = (courseId, unitId, lessonId) => {
         const newContent = document.getElementById('lessonContent').value
         UnitLesson.update(unitId, lessonId, { title: newTitle, content: newContent }).then(result => {
           const { lesson } = result.data
+          window.location.hash = `#/courses/${courseId}/units/${unitId}/lessons/${lessonId}`
           document.getElementById('main-content').innerHTML = singleLessonTemplate(lesson)
         })
       })
@@ -28,6 +29,7 @@ displayLessonForm = (courseId, unitId, lessonId) => {
       const content = document.getElementById('lessonContent').value
       UnitLesson.create(unitId, { title, content }).then(result => {
         const { lesson } = result.data
+        window.location.hash = `#/courses/${courseId}/units/${unitId}/lessons/${lessonId}`
         document.getElementById('main-content').innerHTML = singleLessonTemplate(lesson)
       })
     })
