@@ -10,7 +10,10 @@ displayClasses = () => {
 displayOneClass = (classId) => {
   window.location.href = `#/classes/${classId}`
   Class.show(classId).then(result => {
-    const [group] = result.data.group
-    document.getElementById('main-content').innerHTML = singleClassTemplate(group)
+    Class.getRoster(classId).then(rosterResult => {
+      const { roster } = rosterResult.data
+      const [group] = result.data.group
+      document.getElementById('main-content').innerHTML = singleClassTemplate(group, roster)
+    })
   })
 }

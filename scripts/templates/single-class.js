@@ -1,11 +1,10 @@
-const singleClassTemplate = (data) => {
-  console.log(data)
+const singleClassTemplate = (data, roster) => {
   const hash = window.location.hash
   const { id, name } = data
 
-  // const studentRoster = roster
-  //                  ? roster.map(student => `<li class="list-group-item">${student.preferred_name}</li>`).join('')
-  //                  : ''
+  const studentRoster = roster
+                   ? roster.map(student => `<li class="list-group-item">${student.preferred_name} ${student.last_name}</li>`).join('')
+                   : ''
 
   return `
     <div class="container">
@@ -15,7 +14,7 @@ const singleClassTemplate = (data) => {
       <div class="row">
         <div class="col-sm-6 col-lg-4">
           <ul class="list-group">
-            
+            ${studentRoster}
             <li class="list-group-item list-group-item-info"><a href="#/classes/${id}/new">Add New Student</a></li>
           </ul>
         </div>
