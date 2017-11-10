@@ -7,5 +7,8 @@ window.Class = {
   },
   getRoster(id) {
     return axios.get(`${baseURL}/classes/${id}/students`)
+  },
+  create(body) {
+    return axios.post(`${baseURL}/classes/`, body)
   }
 }

@@ -30,3 +30,22 @@ displayNewStudentForm = (classId) => {
     })
   })
 }
+
+displayClassForm = () => {
+  window.location.href = `#/classes/new`
+  Teachers.index().then(result => {
+    const { teachers } = result.data
+    console.log(teachers)
+    document.getElementById('main-content').innerHTML = classFormTemplate('POST', teachers)
+    document.getElementById('create').addEventListener('submit', (e) => {
+      e.preventDefault()
+      const name = document.getElementById('className').value
+      const teacher_id = document.getElementById('teacherId').value
+      Class.create({ name, teacher_id }).then(response => {
+        const [ group ] = response.data.group
+        displayOneClass(group.id)
+      })
+    })
+  })
+  
+}

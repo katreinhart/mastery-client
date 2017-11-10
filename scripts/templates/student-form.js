@@ -16,7 +16,7 @@ const studentFormTemplate = (courseId, student) => {
           </div>
           <div class="form-group">
             <label for="studentLName">Last Name</label>
-            <textarea required class="form-control" id="studentLName" rows="3">${last_name}</textarea>
+            <input required class="form-control" id="studentLName" rows="3" value="${last_name}">
           </div>
           <button type="submit" class="btn btn-primary">${buttonText}</button>
         </form>

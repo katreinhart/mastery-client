@@ -48,7 +48,11 @@ const handleHashChange = () => {
       } else {
         displayOneClass(hash[1])
       }
-    }  else if (hash.length === 4) {
+    } else if (hash.length === 3) {
+      if(hash[2] === 'edit') {
+        displayClassForm(hash[1])
+      }
+    } else if (hash.length === 4) {
       if(hash[3] === 'new') {
         displayNewStudentForm(hash[1])
       }
