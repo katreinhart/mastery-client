@@ -14,7 +14,7 @@ a.dashboard-button {
   cursor: pointer;  
 }
 
-a.course-button {
+a.course-button, a.class-button {
   width: 95%;
   height: 100px;
   font-size: 2rem;

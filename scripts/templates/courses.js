@@ -19,9 +19,14 @@ const coursesTemplate = (courses) => {
   newCourseButton.textContent = "Add new course"
   newCourseButton.classList = 'btn btn-success course-button'
   newCourseButton.href = `#/courses/new`
+
+  const goHomeButton = document.createElement('a')
+  goHomeButton.textContent = "Back to home"
+  goHomeButton.classList = 'btn btn-warning course-button'
+  goHomeButton.href = '#'
   
   courseList.appendChild(newCourseButton)
-
+  courseList.appendChild(goHomeButton)
   return courseList
 }
 
