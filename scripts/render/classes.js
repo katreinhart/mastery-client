@@ -6,3 +6,11 @@ displayClasses = () => {
     document.getElementById('main-content').appendChild(classesTemplate(classes))
   })
 }
+
+displayOneClass = (classId) => {
+  window.location.href = `#/classes/${classId}`
+  Class.show(classId).then(result => {
+    const [group] = result.data.group
+    document.getElementById('main-content').innerHTML = singleClassTemplate(group)
+  })
+}
