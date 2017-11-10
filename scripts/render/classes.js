@@ -17,3 +17,16 @@ displayOneClass = (classId) => {
     })
   })
 }
+
+displayNewStudentForm = (classId) => {
+  window.location.href = `#/classes/${classId}/students/new`
+  document.getElementById('main-content').innerHTML = studentFormTemplate(classId)
+  document.getElementById('create').addEventListener('submit', (e) => {
+    e.preventDefault()
+    const preferred_name = document.getElementById('studentPName').value
+    const last_name = document.getElementById('studentLName').value
+    ClassStudent.create(classId, {preferred_name, last_name}).then(result => {
+      displayOneClass(classId)
+    })
+  })
+}
