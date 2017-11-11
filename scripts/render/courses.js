@@ -1,5 +1,4 @@
 displayCourses = (courses) => {
-  updateHash(`#/courses`)
   nav.init()
   Course.index().then(result => {
     const { courses } = result.data
@@ -9,7 +8,6 @@ displayCourses = (courses) => {
 }
 
 displayOneCourse = (id) => {
-  updateHash(`#/courses/${id}`)
   nav.init()
   Course.getOne(id).then(result => {
     const { course } = result.data
@@ -51,7 +49,5 @@ handleSubmitCourseForm = (e) => {
         displayOneCourse(course.id)
       })
     }
-  } else {
-    return 
-  }
+  } 
 }

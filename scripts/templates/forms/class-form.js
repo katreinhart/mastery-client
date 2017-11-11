@@ -1,8 +1,7 @@
-const classFormTemplate = (method, teachers, classObj) => {
-  const buttonText = method === 'POST' ? 'Create' : 'Save'
+const classFormTemplate = (teachers, classObj) => {
+  const buttonText = classObj ? 'Save' : 'Create'
   const id = classObj ? 'edit' : 'create'
   const className = classObj? classObj.name : ''
-  console.log(teachers)
   const teacherSelection = teachers.map(teacher => `<option value="${teacher.id}">${teacher.preferred_name}</option>`)
   
   return `<div class="container">

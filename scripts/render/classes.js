@@ -1,5 +1,4 @@
 displayClasses = () => {
-  updateHash('#/classes')
   Class.index().then(result => {
     const { classes } = result.data
     mainContent.innerHTML = ''
@@ -8,7 +7,6 @@ displayClasses = () => {
 }
 
 displayOneClass = (classId) => {
-  updateHash(`#/classes/${classId}`)
   Class.show(classId).then(result => {
     Class.getRoster(classId).then(rosterResult => {
       const { roster } = rosterResult.data
@@ -19,11 +17,9 @@ displayOneClass = (classId) => {
 }
 
 displayClassForm = () => {
-  updateHash(`#/classes/new`)
   Teachers.index().then(result => {
     const { teachers } = result.data
-    console.log(teachers)
-    mainContent.innerHTML = classFormTemplate('POST', teachers)
+    mainContent.innerHTML = classFormTemplate(teachers)
     document.getElementById('create').addEventListener('submit', (e) => {
       e.preventDefault()
       const name = document.getElementById('className').value
