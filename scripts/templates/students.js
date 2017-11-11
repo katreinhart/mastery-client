@@ -11,6 +11,9 @@ const allStudentsTemplate = (students) => {
           </ul>
         </div>
       </div>
+      <div class="row">
+        <a href="#">Home</a>
+      </div>
     </div>
   `
 }

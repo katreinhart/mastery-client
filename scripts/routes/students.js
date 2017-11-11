@@ -7,5 +7,6 @@ window.Student = {
   },
   update(id, body) {
     return axios.put(`${baseURL}/students/${id}`, body)
-  }
+  },
+  
 }

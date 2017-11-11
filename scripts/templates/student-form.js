@@ -1,8 +1,20 @@
-const studentFormTemplate = (courseId, student) => {
+const studentFormTemplate = (courseId, student, classes) => {
   const buttonText = student ? 'Save' : 'Create'
-  const { preferred_name, last_name } = student ? student : { preferred_name: '', last_name: '' }
+  console.log(student)
+  // const { preferred_name, last_name } = student ? student : { preferred_name: '', last_name: '' }
+  const preferred_name = student ? student.preferred_name : '' 
+  const last_name = student ? student.last_name : '' 
   const formId = student ? 'edit' : 'create' 
   const displayTitle = student ? 'Edit Student' : 'Add New Student'
+  const classSelection = classes ? classes.map(each => {
+    return `<option value="${each.id}">${each.preferred_name}'s ${each.name}</option>`
+  }) 
+    : '' 
+  const selectionDiv = classes ? `<select id="classId" class="custom-select">
+                                    <option selected disabled>Select a class</option>
+                                    ${classSelection}
+                                  </select>` 
+                               : ''
 
   return `<div class="container">
     <div class="row">
@@ -18,6 +30,7 @@ const studentFormTemplate = (courseId, student) => {
             <label for="studentLName">Last Name</label>
             <input required class="form-control" id="studentLName" rows="3" value="${last_name}">
           </div>
+          ${selectionDiv}
           <button type="submit" class="btn btn-primary">${buttonText}</button>
         </form>
       </div>

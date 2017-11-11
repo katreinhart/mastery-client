@@ -16,7 +16,7 @@ displayOneStudent = (id) => {
 
 displayNewStudentForm = (classId) => {
   window.location.href = `#/classes/${classId}/students/new`
-  document.getElementById('main-content').innerHTML = studentFormTemplate('POST', classId)
+  document.getElementById('main-content').innerHTML = studentFormTemplate(classId)
   document.getElementById('create').addEventListener('submit', (e) => {
     e.preventDefault()
     const preferred_name = document.getElementById('studentPName').value
@@ -29,16 +29,21 @@ displayNewStudentForm = (classId) => {
 
 displayEditStudentForm = (studentId) => {
   window.location.href = `#/students/${studentId}/edit`
-  Student.show(studentId).then(result => {
-    const {student } = result.data
-    document.getElementById('main-content').innerHTML = studentFormTemplate('PUT', student)
-    document.getElementById('edit').addEventListener('submit', (e) => {
-      e.preventDefault()
-      const preferred_name = document.getElementById('studentPName').value
-      const last_name = document.getElementById('studentLName').value
-      Student.update(studentId, {preferred_name, last_name}).then(result => {
-        displayOneStudent(studentId)
+  const classesPromise = Class.index()
+  const studentPromise = Student.show(studentId)
+  Promise.all([classesPromise, studentPromise])
+    .then(([classesResult, studentResult]) => {
+      const { classes } = classesResult.data
+      const { student } = studentResult.data
+      document.getElementById('main-content').innerHTML = studentFormTemplate(0, student, classes)
+      document.getElementById('edit').addEventListener('submit', (e) => {
+        e.preventDefault()
+        const preferred_name = document.getElementById('studentPName').value
+        const last_name = document.getElementById('studentLName').value
+        const class_id = document.getElementById('classId').value
+        Student.update(studentId, {preferred_name, last_name, class_id }).then(result => {
+          displayOneStudent(studentId)
+        })
       })
     })
-  })
 }
