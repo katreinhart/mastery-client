@@ -1,4 +1,6 @@
-const singleStudentTemplate = (student) => {
+const singleStudentTemplate = (student, group) => {
+  const teacherName = group.teacher_name
+  const groupName = group.name
   return `
   <div class="container">
     <div class="row">
@@ -13,8 +15,8 @@ const singleStudentTemplate = (student) => {
         </ul>
       </div>
       <div class="col-sm-8 col-lg-9">
-        <p>Wayfarers green juice intelligentsia taxidermy, single-origin coffee copper mug freegan aesthetic four dollar toast celiac drinking vinegar direct trade tofu occupy adaptogen. Celiac authentic prism yr. Freegan farm-to-table gastropub tousled, typewriter vegan hammock ennui ethical blue bottle. Occupy kickstarter wolf health goth snackwave pour-over.</p>
-        <a href="#/students/${student.id}/edit">Edit student info</a>
+        <p><a href="#/classes/${group.class_id}">${teacherName}'s ${groupName}</a></p>
+        <p><a href="#/students/${student.id}/edit">Edit student info</a></p>
       </div>
       <a href="#/students/">Back to students</a>
     </div>

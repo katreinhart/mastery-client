@@ -10,7 +10,13 @@ displayOneStudent = (id) => {
   window.location.hash = `#/students/${id}`
   Student.show(id).then(result => {
     const { student } = result.data
-    document.getElementById('main-content').innerHTML = singleStudentTemplate(student)
+    Class.show(student.class_id).then(result => {
+      const [group] = result.data.group
+      Teachers.show(group.teacher_id).then(result => {
+        const { teacher } = result.data
+        document.getElementById('main-content').innerHTML = singleStudentTemplate(student, group)
+      })
+    })
   }) 
 }
 

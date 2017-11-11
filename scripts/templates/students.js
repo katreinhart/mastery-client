@@ -1,5 +1,9 @@
 const allStudentsTemplate = (students) => {
-  const studentList = students.map(student => `<li class="list-group-item"><a href="#/students/${student.id}">${student.preferred_name} ${student.last_name}</a></li>`).join('')
+  const studentList = students.map(student => {
+    return `<li class="list-group-item">
+        <a href="#/students/${student.id}">${student.preferred_name} ${student.last_name}</a> 
+      </li>`
+  }).join('')
   return `
     <div class="container">
       <div class="row"><h3>All Students</h3></div>

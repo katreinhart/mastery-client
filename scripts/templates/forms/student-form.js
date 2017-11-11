@@ -1,13 +1,12 @@
 const studentFormTemplate = (courseId, student, classes) => {
   const buttonText = student ? 'Save' : 'Create'
-  console.log(student)
-  // const { preferred_name, last_name } = student ? student : { preferred_name: '', last_name: '' }
   const preferred_name = student ? student.preferred_name : '' 
   const last_name = student ? student.last_name : '' 
   const formId = student ? 'edit' : 'create' 
   const displayTitle = student ? 'Edit Student' : 'Add New Student'
   const classSelection = classes ? classes.map(each => {
-    return `<option value="${each.id}">${each.preferred_name}'s ${each.name}</option>`
+    if(each.id === student.class_id) return `<option selected value="${each.id}">${each.name}</option>`
+    else return `<option value="${each.id}">${each.name}</option>`
   }) 
     : '' 
   const selectionDiv = classes ? `<select id="classId" class="custom-select">
