@@ -1,8 +1,7 @@
 window.homeView = {
   init() {
-    window.location.hash = '#'
+    updateHash('#')
     nav.init()
-    document.getElementById('main-content').innerHTML = dashboardTemplate()
-    
+    mainContent.innerHTML = dashboardTemplate()
   }
 }

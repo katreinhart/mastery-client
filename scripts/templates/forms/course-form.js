@@ -1,5 +1,5 @@
-const courseFormTemplate = (method, course) => {
-  const buttonText = method === 'POST' ? 'Create' : 'Save'
+const courseFormTemplate = (course) => {
+  const buttonText = course ? 'Save' : 'Create'
   const { title, description } = course ? course : { title: '', description: '' }
   const id = course ? 'edit' : 'create' 
 
