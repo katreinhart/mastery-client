@@ -1,5 +1,4 @@
 const singleClassTemplate = (data, roster) => {
-  console.log(data)
   const { class_id, name } = data
   const teacherName = data.teacher_name
 
