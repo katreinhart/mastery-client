@@ -1,6 +1,6 @@
 const lessonFormTemplate = (courseId, unitId, lesson) => {
   const buttonText = lesson ? 'Save' : 'Create'
-  const { title, content } = lesson ? lesson : { title: '', summary: '' }
+  const { title, content } = lesson ? lesson : { title: '', content: '' }
   const id = lesson ? 'edit' : 'create' 
   const displayTitle = lesson ? 'Edit Lesson' : 'Create a New Lesson'
 

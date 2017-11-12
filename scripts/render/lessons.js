@@ -1,4 +1,5 @@
 displayOneLesson = (courseId, unitId, lessonId) => {
+  updateHash(`#/courses/${courseId}/units/${unitId}/lessons/${lessonId}`)
   UnitLesson.show(unitId, lessonId).then(result => {
     const { lesson } = result.data
     mainContent.innerHTML = singleLessonTemplate(lesson)
@@ -29,8 +30,7 @@ displayLessonForm = (courseId, unitId, lessonId) => {
       const content = document.getElementById('lessonContent').value
       UnitLesson.create(unitId, { title, content }).then(result => {
         const { lesson } = result.data
-        updateHash(`#/courses/${courseId}/units/${unitId}/lessons/${lessonId}`)
-        mainContent.innerHTML = singleLessonTemplate(lesson)
+        displayOneLesson(courseId, unitId, lesson.id)
       })
     })
   }
