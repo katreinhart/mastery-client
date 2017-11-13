@@ -11,6 +11,14 @@ displayLessonForm = (courseId, unitId, lessonId) => {
     UnitLesson.show(unitId, lessonId).then(result => {
       const { lesson } = result.data
       mainContent.innerHTML = lessonFormTemplate(courseId, unitId, lesson)
+      document.getElementById('delete-button').innerHTML = deleteModalLessonButton()
+      document.getElementById('confirm-delete').addEventListener('click', (e) => {
+        UnitLesson.delete(unitId, lessonId).then(response => {
+          // body.classList.toggle('modal-open')
+          updateHash(`#/courses/${courseId}/units/${unitId}`)
+          displayOneUnit(courseId, unitId)
+        })
+      })
       document.getElementById('edit').addEventListener('submit', (e) => {
         e.preventDefault()
         const newTitle = document.getElementById('lessonTitle').value
@@ -21,6 +29,7 @@ displayLessonForm = (courseId, unitId, lessonId) => {
           mainContent.innerHTML = singleLessonTemplate(lesson)
         })
       })
+      
     })
   } else {
     mainContent.innerHTML = lessonFormTemplate(courseId, unitId)
