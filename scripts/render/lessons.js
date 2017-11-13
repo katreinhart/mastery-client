@@ -18,28 +18,30 @@ displayLessonForm = (courseId, unitId, lessonId) => {
           displayOneUnit(courseId, unitId)
         })
       })
-      document.getElementById('edit').addEventListener('submit', (e) => {
-        e.preventDefault()
-        const newTitle = document.getElementById('lessonTitle').value
-        const newContent = document.getElementById('lessonContent').value
-        UnitLesson.update(unitId, lessonId, { title: newTitle, content: newContent }).then(result => {
-          const { lesson } = result.data
-          updateHash(`#/courses/${courseId}/units/${unitId}/lessons/${lessonId}`)
-          mainContent.innerHTML = singleLessonTemplate(lesson)
-        })
-      })
-      
+      document.getElementById('edit').addEventListener('submit', handleLessonFormSubmit)
     })
   } else {
     mainContent.innerHTML = lessonFormTemplate(courseId, unitId)
-    document.getElementById('create').addEventListener('submit', (e) => {
-      e.preventDefault()
-      const title = document.getElementById('lessonTitle').value
-      const content = document.getElementById('lessonContent').value
-      UnitLesson.create(unitId, { title, content }).then(result => {
-        const { lesson } = result.data
-        displayOneLesson(courseId, unitId, lesson.id)
-      })
+    document.getElementById('create').addEventListener('submit', handleLessonFormSubmit)
+  }
+}
+
+const handleLessonFormSubmit = (e) => {
+  e.preventDefault()
+  const hash = parseHash()
+  const courseId = hash[1], unitId = hash[3], lessonId = hash[5]
+  const title = document.getElementById('lessonTitle').value
+  const content = document.getElementById('lessonContent').value
+
+  if(lessonId === 'new') {
+    UnitLesson.create(unitId, { title, content }).then(result => {
+      const { lesson } = result.data
+      displayOneLesson(courseId, unitId, lesson.id)
+    })
+  } else {
+    UnitLesson.update(unitId, lessonId, { title, content }).then(result => {
+      const { lesson } = result.data
+      displayOneLesson(courseId, unitId, lessonId)
     })
   }
 }
