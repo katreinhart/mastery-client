@@ -19,16 +19,16 @@ displayOneCourse = (id) => {
 }
 
 displayCourseForm = (id) => {
-  if(id) {
+  if(!id) {
+    mainContent.innerHTML = courseFormTemplate()
+    document.getElementById('create').addEventListener('submit', handleSubmitCourseForm)
+  } 
+  else {
     Course.getOne(id).then(response => {
       const { course } = response.data
       mainContent.innerHTML = courseFormTemplate(course)
       document.getElementById('edit').addEventListener('submit', handleSubmitCourseForm)
-    })
-  } 
-  else {
-    mainContent.innerHTML = courseFormTemplate()
-    document.getElementById('create').addEventListener('submit', handleSubmitCourseForm)
+    }) 
   }
 }
 
@@ -38,7 +38,7 @@ handleSubmitCourseForm = (e) => {
   const description = document.getElementById('courseDescription').value
   const id = parseHash()[1]
   if(title && description) {
-    if(id) {
+    if(id !== 'new') {
       Course.update(id, {title, description }).then(response => {
         const [course] = response.data.course
         displayOneCourse(course.id)
