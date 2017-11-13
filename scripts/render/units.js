@@ -15,7 +15,6 @@ displayUnitForm = (courseId, unitId) => {
       mainContent.innerHTML = unitFormTemplate(courseId, unit)
       UnitLesson.index(unitId).then(result => {
         const { lessons } = result.data
-        console.log(lessons.length)
         if(lessons.length) {
           document.getElementById('delete-button').innerHTML = deleteUnitModalButton(true)
         } else {
@@ -42,7 +41,7 @@ handleUnitFormSubmit = (e) => {
   const unitId = parseHash()[3]
   const courseId = parseHash()[1]
   if(unitId === 'new') {
-    CourseUnit.create(courseId, { title, summary}).then(response => {
+    CourseUnit.create(courseId, { title, summary }).then(response => {
       const { unit } = response.data
       displayOneUnit(courseId, unit.id)
     })

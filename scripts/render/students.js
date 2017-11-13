@@ -33,6 +33,17 @@ displayNewStudentForm = (classId) => {
   })
 }
 
+handleStudentFormSubmit = (e) => {
+  const studentId = parseHash()[1]
+  e.preventDefault()
+  const preferred_name = document.getElementById('studentPName').value
+  const last_name = document.getElementById('studentLName').value
+  const class_id = document.getElementById('classId').value
+  Student.update(studentId, {preferred_name, last_name, class_id }).then(result => {
+    displayOneStudent(studentId)
+  })
+}
+
 displayEditStudentForm = (studentId) => {
   updateHash(`#/students/${studentId}/edit`)
   const classesPromise = Class.index()
@@ -42,14 +53,6 @@ displayEditStudentForm = (studentId) => {
       const { classes } = classesResult.data
       const { student } = studentResult.data
       mainContent.innerHTML = studentFormTemplate(0, student, classes)
-      document.getElementById('edit').addEventListener('submit', (e) => {
-        e.preventDefault()
-        const preferred_name = document.getElementById('studentPName').value
-        const last_name = document.getElementById('studentLName').value
-        const class_id = document.getElementById('classId').value
-        Student.update(studentId, {preferred_name, last_name, class_id }).then(result => {
-          displayOneStudent(studentId)
-        })
-      })
+      document.getElementById('edit').addEventListener('submit', handleStudentFormSubmit)
     })
 }
