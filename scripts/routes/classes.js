@@ -13,5 +13,8 @@ window.Class = {
   },
   update(id, body) {
     return axios.put(`${baseURL}/classes/${id}`, body)
+  },
+  delete(id) {
+    return axios.delete(`${baseURL}/classes/${id}`)
   }
 }

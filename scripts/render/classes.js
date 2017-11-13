@@ -28,6 +28,21 @@ displayClassForm = (id) => {
     } else {
       const [ myClass ] = group
       mainContent.innerHTML = classFormTemplate(teachers, myClass)
+      ClassStudent.index(myClass.class_id).then(result => {
+        const { roster } = result.data
+        if(roster.length) {
+          document.getElementById('delete-button').innerHTML = deleteClassModalButton(true)
+        }
+        else {
+          document.getElementById('delete-button').innerHTML = deleteClassModalButton(false)
+          document.getElementById('confirm-delete').addEventListener('click', (e) => {
+            Class.delete(id).then(response => {
+              displayClasses()
+            })
+          })
+        }
+      })
+      
       document.getElementById('edit').addEventListener('submit', handleClassFormSubmit)  
     }
   })

@@ -31,6 +31,7 @@ const studentFormTemplate = (courseId, student, classes) => {
           </div>
           ${selectionDiv}
           <button type="submit" class="btn btn-primary">${buttonText}</button>
+          <span id="delete-button"></span>
         </form>
       </div>
     </div>

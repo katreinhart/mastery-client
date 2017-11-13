@@ -23,6 +23,7 @@ const classFormTemplate = (teachers, classObj) => {
               ${teacherSelection}
             </select>
             <button type="submit" class="btn btn-primary">${buttonText}</button>
+            <span id="delete-button"></span>
           </form>
       </div>
     </div>
