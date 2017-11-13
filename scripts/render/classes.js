@@ -16,18 +16,38 @@ displayOneClass = (classId) => {
   })
 }
 
-displayClassForm = () => {
-  Teachers.index().then(result => {
-    const { teachers } = result.data
-    mainContent.innerHTML = classFormTemplate(teachers)
-    document.getElementById('create').addEventListener('submit', (e) => {
-      e.preventDefault()
-      const name = document.getElementById('className').value
-      const teacher_id = document.getElementById('teacherId').value
-      Class.create({ name, teacher_id }).then(response => {
-        const [ group ] = response.data.group
-        displayOneClass(group.id)
-      })
-    })
+displayClassForm = (id) => {
+  const classPromise = id ? Class.show(id) : Class.index()
+  const teacherPromise = Teachers.index()
+
+  Promise.all([classPromise, teacherPromise]).then(result => {
+    const [ { data: { group }}, { data: { teachers }}] = result
+    if(!group) {
+      mainContent.innerHTML = classFormTemplate(teachers)
+      document.getElementById('create').addEventListener('submit', handleClassFormSubmit)
+    } else {
+      const [ myClass ] = group
+      mainContent.innerHTML = classFormTemplate(teachers, myClass)
+      document.getElementById('edit').addEventListener('submit', handleClassFormSubmit)  
+    }
   })
+}
+
+const handleClassFormSubmit = (e) => {
+  e.preventDefault()
+  const id = parseHash()[1]
+  const name = document.getElementById('className').value
+  const teacher_id = document.getElementById('teacherId').value
+
+  if(id === 'new') {
+    Class.create({ name, teacher_id }).then(response => {
+      const [ group ] = response.data.group
+      displayOneClass(group.id)
+    })
+  } else {
+    Class.update(id, { name, teacher_id }).then(response => {
+      const [ group ] = response.data.group
+      displayOneClass(group.id)
+    })
+  }
 }

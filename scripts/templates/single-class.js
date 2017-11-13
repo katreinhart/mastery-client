@@ -22,6 +22,7 @@ const singleClassTemplate = (data, roster) => {
         <div class="col-sm-8 col-lg-9">
           <h4>${teacherName}</h4>
           <p>Future stuff on class units and lessons will go here... </p>
+          <a href="#/classes/${class_id}/edit" class="btn btn-info">Edit class info</a>
         </div>
       </div>
       

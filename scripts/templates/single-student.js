@@ -17,7 +17,7 @@ const singleStudentTemplate = (student, group) => {
       </div>
       <div class="col-sm-8 col-lg-9">
         <p><a href="#/classes/${group.class_id}">${teacherName}'s ${groupName}</a></p>
-        <p><a href="#/students/${student.id}/edit">Edit student info</a></p>
+        <p><a href="#/students/${student.id}/edit" class="btn btn-info">Edit student info</a></p>
       </div>
     </div>
   </div>

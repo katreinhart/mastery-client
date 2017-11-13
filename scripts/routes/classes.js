@@ -10,5 +10,8 @@ window.Class = {
   },
   create(body) {
     return axios.post(`${baseURL}/classes/`, body)
+  },
+  update(id, body) {
+    return axios.put(`${baseURL}/classes/${id}`, body)
   }
 }
