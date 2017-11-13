@@ -1,8 +1,12 @@
 displayAllStudents = () => {
-  updateHash(`#/students`)
-  Student.index().then(result => {
-    const { students } = result.data
-    mainContent.innerHTML = allStudentsTemplate(students)
+  // updateHash(`#/students`)
+  nav.init()
+  const studentPromise = Student.index()
+  const classPromise = Class.index()
+
+  Promise.all([studentPromise, classPromise]).then(result => {
+    const [ { data: {students} }, { data: {classes} } ] = result
+    mainContent.innerHTML = allStudentsTemplate(students, classes)
   })
 }
 
@@ -27,7 +31,7 @@ displayNewStudentForm = (classId) => {
     e.preventDefault()
     const preferred_name = document.getElementById('studentPName').value
     const last_name = document.getElementById('studentLName').value
-    ClassStudent.create(classId, {preferred_name, last_name}).then(result => {
+    ClassStudent.create(classId, { preferred_name, last_name }).then(result => {
       displayOneClass(classId)
     })
   })
@@ -39,20 +43,18 @@ handleStudentFormSubmit = (e) => {
   const preferred_name = document.getElementById('studentPName').value
   const last_name = document.getElementById('studentLName').value
   const class_id = document.getElementById('classId').value
-  Student.update(studentId, {preferred_name, last_name, class_id }).then(result => {
+  Student.update(studentId, { preferred_name, last_name, class_id }).then(result => {
     displayOneStudent(studentId)
   })
 }
 
 displayEditStudentForm = (studentId) => {
-  updateHash(`#/students/${studentId}/edit`)
   const classesPromise = Class.index()
   const studentPromise = Student.show(studentId)
-  Promise.all([classesPromise, studentPromise])
-    .then(([classesResult, studentResult]) => {
-      const { classes } = classesResult.data
-      const { student } = studentResult.data
-      mainContent.innerHTML = studentFormTemplate(0, student, classes)
-      document.getElementById('edit').addEventListener('submit', handleStudentFormSubmit)
-    })
+
+  Promise.all([classesPromise, studentPromise]).then(result => {
+    const [ { data: { classes } }, { data: { student } } ] = result
+    mainContent.innerHTML = studentFormTemplate(0, student, classes)
+    document.getElementById('edit').addEventListener('submit', handleStudentFormSubmit)
+  })
 }

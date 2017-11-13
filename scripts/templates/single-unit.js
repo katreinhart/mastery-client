@@ -30,8 +30,8 @@ const singleUnitTemplate = (unit, lessons) => {
 }
 
 const deleteUnitModalButton = (disable) => {
-  const disabledInfo = disable ? 'disabled aria-disabled="true"' : ''
-  const buttonText = disable ? 'Unit has dependent lessons' : 'Delete this unit'
+  const disabledInfo = disable ? 'disabled aria-disabled="true" title="Cannot delete unit with dependent lessons"' : ''
+  const buttonText = disable ? 'Delete' : 'Delete this unit'
 
   return `<!-- Button trigger modal -->
     <button type="button" ${disabledInfo} class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteUnit">

@@ -17,13 +17,14 @@ const singleClassTemplate = (data, roster) => {
             ${studentRoster}
             <li class="list-group-item list-group-item-info"><a href="#/classes/${class_id}/students/new">Add New Student</a></li>
           </ul>
+          <a href="#/classes" class="btn btn-secondary btn-block">Back to Classes</a>
         </div>
         <div class="col-sm-8 col-lg-9">
           <h4>${teacherName}</h4>
           <p>Future stuff on class units and lessons will go here... </p>
         </div>
       </div>
-      <a href="#/classes">Back</a>
+      
     </div>
   `
 }

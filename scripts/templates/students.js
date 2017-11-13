@@ -1,9 +1,11 @@
-const allStudentsTemplate = (students) => {
+const allStudentsTemplate = (students, classes) => {
   const studentList = students.map(student => {
-    return `<li class="list-group-item">
-        <a href="#/students/${student.id}">${student.preferred_name} ${student.last_name}</a> 
-        <span>Class Name</span>
-        <span>Current Unit</span>
+    const studentClass = classes.find(group => group.id === student.class_id)
+    return `<li class="list-group-item "><div class="row">
+        <div class="col-sm-2 col-md-3"><a  href="#/students/${student.id}">${student.preferred_name} ${student.last_name}</a> </div>
+        <div class="col-sm-2 col-md-3"><a class="btn btn-info btn-block" href="#/classes/${student.class_id}">${studentClass.name}</a></span></div>
+        <div class="col-sm-8 col-md-6">Current Unit: coming soon</div>
+        </div>
       </li>`
   }).join('')
   return `
@@ -12,7 +14,7 @@ const allStudentsTemplate = (students) => {
         <h3>All Students</h3>
       </div>
       <div class="row">
-        <a href="#">Home</a>
+        <a class="btn btn-secondary" href="#">Home</a>
       </div>
       <div class="row">
         <div class="col-1"></div>

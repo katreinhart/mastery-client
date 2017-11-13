@@ -13,12 +13,12 @@ const singleStudentTemplate = (student, group) => {
           <li class="list-group-item">unit 2</li>
           <li class="list-group-item">unit 3</li>
         </ul>
+        <a href="#/classes/${group.class_id}" class="btn btn-secondary btn-block">Back to Class</a>
       </div>
       <div class="col-sm-8 col-lg-9">
         <p><a href="#/classes/${group.class_id}">${teacherName}'s ${groupName}</a></p>
         <p><a href="#/students/${student.id}/edit">Edit student info</a></p>
       </div>
-      <a href="#/students/">Back to students</a>
     </div>
   </div>
 `

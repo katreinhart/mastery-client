@@ -2,11 +2,11 @@ window.Student = {
   index() {
     return axios.get(`${baseURL}/students`)
   },
-  show(id) {
-    return axios.get(`${baseURL}/students/${id}`)
+  show(student_id) {
+    return axios.get(`${baseURL}/students/${student_id}`)
   },
-  update(id, body) {
-    return axios.put(`${baseURL}/students/${id}`, body)
+  update(student_id, body) {
+    return axios.put(`${baseURL}/students/${student_id}`, body)
   },
   
 }
