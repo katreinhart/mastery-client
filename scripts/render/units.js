@@ -14,11 +14,12 @@ displayUnitForm = (courseId, unitId) => {
       const [unit] = result.data.unit
       mainContent.innerHTML = unitFormTemplate(courseId, unit)
       UnitLesson.index(unitId).then(result => {
-        if(result.length) {
-          document.getElementById('delete-button').innerHTML = deleteUnitModalButton()
-          document.getElementById('delete-button').classList.toggle('disabled')
+        const { lessons } = result.data
+        console.log(lessons.length)
+        if(lessons.length) {
+          document.getElementById('delete-button').innerHTML = deleteUnitModalButton(true)
         } else {
-          document.getElementById('delete-button').innerHTML = deleteUnitModalButton()
+          document.getElementById('delete-button').innerHTML = deleteUnitModalButton(false)
           document.getElementById('confirm-delete').addEventListener('click', (e) => {
             CourseUnit.delete(courseId, unitId).then(result => {
               displayOneCourse(courseId)
