@@ -24,10 +24,8 @@ displayCourseForm = (id) => {
     const unitPromise = CourseUnit.index(id)
     Promise.all([coursePromise, unitPromise]).then(result => {
       const [ { data: {course} }, { data: {units} } ] = result
-      console.log(course, units)
       mainContent.innerHTML = courseFormTemplate(course)
       if(units.length) {
-        console.log('there be units here, do not delete')
         document.getElementById('delete-button').innerHTML = deleteCourseModalButton(true)
       } else {
         document.getElementById('delete-button').innerHTML = deleteCourseModalButton(false)
