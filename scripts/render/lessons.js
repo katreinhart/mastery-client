@@ -14,7 +14,6 @@ displayLessonForm = (courseId, unitId, lessonId) => {
       document.getElementById('delete-button').innerHTML = deleteModalLessonButton()
       document.getElementById('confirm-delete').addEventListener('click', (e) => {
         UnitLesson.delete(unitId, lessonId).then(response => {
-          // body.classList.toggle('modal-open')
           updateHash(`#/courses/${courseId}/units/${unitId}`)
           displayOneUnit(courseId, unitId)
         })

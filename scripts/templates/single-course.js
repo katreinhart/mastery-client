@@ -12,12 +12,12 @@ const singleCourseTemplate = (course, units) => {
           ${unitsList}
           <li class="list-group-item list-group-item-info"><a href="#/courses/${id}/units/new">Create new unit</a></li>
         </ul>
+        <a href="#/courses/" class="btn btn-secondary btn-block">Back to courses</a>
       </div>
       <div class="col-sm-8 col-lg-9">
         <p>${description}</p>
-        <a href="#/courses/${id}/edit">Edit course</a>
+        <a href="#/courses/${id}/edit" class="btn btn-primary">Edit course</a>
       </div>
-      <a href="#/courses/">Back to courses</a>
     </div>
   </div>
 `

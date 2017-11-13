@@ -9,7 +9,7 @@ const singleUnitTemplate = (unit, lessons) => {
   return `
     <div class="container">
       <div class="row">
-        <div class="col-sm-12"><h3>${title}</h3></div>
+        <div class="col-sm-12 mt-3 mb-2 text-center"><h3>${title}</h3></div>
       </div>
       <div class="row">
         <div class="col-sm-6 col-lg-4">
@@ -17,13 +17,43 @@ const singleUnitTemplate = (unit, lessons) => {
             ${lessonList}
             <li class="list-group-item list-group-item-info"><a href="#/courses/${unit.course_id}/units/${id}/lessons/new">Add New Lesson</a></li>
           </ul>
+          <a href="#/courses/${unit.course_id}" class="btn btn-secondary btn-block">Back to Course</a>
         </div>
         <div class="col-sm-6 col-lg-8">
           <p>${summary}</p>
-          <a href="#/courses/${unit.course_id}/units/${id}/edit">Edit</a>
+          <a href="#/courses/${unit.course_id}/units/${id}/edit" class="btn btn-primary">Edit Unit</a>
         </div>
       </div>
-      <a href="#/courses/${unit.course_id}">Back</a>
+      
+    </div>
+  `
+}
+
+const deleteUnitModalButton = () => {
+  return `<!-- Button trigger modal -->
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteUnit">
+      Delete this lesson
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="confirmDeleteUnit" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteUnitModal" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmDeleteUnitModal">Are you sure?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete this lesson?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal" id="confirm-delete">Delete</button>
+          </div>
+        </div>
+      </div>
     </div>
   `
 }

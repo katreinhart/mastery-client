@@ -19,6 +19,7 @@ const unitFormTemplate = (courseId, unit) => {
             <textarea required class="form-control" id="unitSummary" rows="3">${summary}</textarea>
           </div>
           <button type="submit" class="btn btn-primary">${buttonText}</button>
+          <span id="delete-button"></span>
         </form>
       </div>
     </div>
