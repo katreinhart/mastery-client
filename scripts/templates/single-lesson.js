@@ -12,13 +12,12 @@ const singleLessonTemplate = (lesson) => {
     </div>
     <div class="row">
       <div class="col-sm-4 col-lg-3">
-        
+        <a href="${back}/" class="btn btn-secondary">Back to lessons</a>  
       </div>
       <div class="col-sm-8 col-lg-9">
         <p>${htmlContent}</p>
-        <a href="${back}/${id}/edit">Edit lesson</a>
+        <a href="${back}/${id}/edit" class="btn btn-primary">Edit lesson</a>
       </div>
-      <a href="${back}/">Back to lessons</a>
     </div>
   </div>
 `

@@ -32,7 +32,7 @@ const singleUnitTemplate = (unit, lessons) => {
 const deleteUnitModalButton = () => {
   return `<!-- Button trigger modal -->
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteUnit">
-      Delete this lesson
+      Delete this unit
     </button>
     
     <!-- Modal -->
@@ -46,7 +46,7 @@ const deleteUnitModalButton = () => {
             </button>
           </div>
           <div class="modal-body">
-            Are you sure you want to delete this lesson?
+            Are you sure you want to delete this unit?
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

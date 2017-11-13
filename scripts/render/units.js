@@ -1,14 +1,9 @@
 displayOneUnit = (courseId, unitId) => {
   CourseUnit.show(courseId, unitId).then(result => {
-    updateHash(`#/courses/${courseId}/units/${unitId}`)
     const [unit] = result.data.unit
     UnitLesson.index(unitId).then(result => {
-      const lessons = result.data.lessons
-      if(lessons.length) {
-        mainContent.innerHTML = singleUnitTemplate(unit, lessons)
-      } else {
-        mainContent.innerHTML = singleUnitTemplate(unit)
-      }
+      const { lessons } = result.data
+      mainContent.innerHTML = singleUnitTemplate(unit, lessons)
     })
   })
 }
@@ -16,9 +11,21 @@ displayOneUnit = (courseId, unitId) => {
 displayUnitForm = (courseId, unitId) => {
   if(unitId) {
     CourseUnit.show(courseId, unitId).then(result => {
-      updateHash(`#/courses/${courseId}/units/${unitId}/edit`)
       const [unit] = result.data.unit
       mainContent.innerHTML = unitFormTemplate(courseId, unit)
+      UnitLesson.index(unitId).then(result => {
+        if(result.length) {
+          document.getElementById('delete-button').innerHTML = deleteUnitModalButton()
+          document.getElementById('delete-button').classList.toggle('disabled')
+        } else {
+          document.getElementById('delete-button').innerHTML = deleteUnitModalButton()
+          document.getElementById('confirm-delete').addEventListener('click', (e) => {
+            CourseUnit.delete(courseId, unitId).then(result => {
+              displayOneCourse(courseId)
+            })
+          })
+        }
+      })
       document.getElementById('edit').addEventListener('submit', handleUnitFormSubmit)
     })
   } else {
