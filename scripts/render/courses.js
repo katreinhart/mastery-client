@@ -19,16 +19,30 @@ displayOneCourse = (id) => {
 }
 
 displayCourseForm = (id) => {
-  if(!id) {
-    mainContent.innerHTML = courseFormTemplate()
-    document.getElementById('create').addEventListener('submit', handleSubmitCourseForm)
+  if(id) {
+    const coursePromise = Course.getOne(id)
+    const unitPromise = CourseUnit.index(id)
+    Promise.all([coursePromise, unitPromise]).then(result => {
+      const [ { data: {course} }, { data: {units} } ] = result
+      console.log(course, units)
+      mainContent.innerHTML = courseFormTemplate(course)
+      if(units.length) {
+        console.log('there be units here, do not delete')
+        document.getElementById('delete-button').innerHTML = deleteCourseModalButton(true)
+      } else {
+        document.getElementById('delete-button').innerHTML = deleteCourseModalButton(false)
+        document.getElementById('confirm-delete').addEventListener('click', (e) => {
+          Course.delete(course.id).then(result => {
+            displayCourses()
+          })
+        })
+      }
+      document.getElementById('edit').addEventListener('submit', handleSubmitCourseForm)
+    })
   } 
   else {
-    Course.getOne(id).then(response => {
-      const { course } = response.data
-      mainContent.innerHTML = courseFormTemplate(course)
-      document.getElementById('edit').addEventListener('submit', handleSubmitCourseForm)
-    }) 
+    mainContent.innerHTML = courseFormTemplate()
+    document.getElementById('create').addEventListener('submit', handleSubmitCourseForm)
   }
 }
 

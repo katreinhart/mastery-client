@@ -8,6 +8,7 @@ const allStudentsTemplate = (students, classes) => {
         </div>
       </li>`
   }).join('')
+  
   return `
     <div class="container">
       <div class="row">
@@ -24,7 +25,6 @@ const allStudentsTemplate = (students, classes) => {
           </ul>
         </div>
       </div>
-      
     </div>
   `
 }

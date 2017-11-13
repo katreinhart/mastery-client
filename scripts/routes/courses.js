@@ -11,7 +11,7 @@ window.Course = {
   update(id, body) {
     return axios.put(`${baseURL}/courses/${id}`, body)
   },
-  destroy(id) {
+  delete(id) {
     return axios.delete(`${baseURL}/courses/${id}`)
   }
 }

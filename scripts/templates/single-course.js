@@ -23,11 +23,14 @@ const singleCourseTemplate = (course, units) => {
 `
 }
 
-const deleteCourseModalButton = () => {
+const deleteCourseModalButton = (disable) => {
+  const disabledInfo = disable ? 'disabled aria-disabled="true" title="Cannot delete course with dependent lessons"' : ''
+  const buttonText = disable ? 'Delete' : 'Delete this course'
+
   return `<!-- Button trigger modal -->
-  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteCourse">
-    Delete this Course
-  </button>
+    <button type="button" ${disabledInfo} class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteCourse">
+      ${buttonText}
+    </button>
   
   <!-- Modal -->
   <div class="modal fade" id="confirmDeleteCourse" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteCourseModal" aria-hidden="true">
