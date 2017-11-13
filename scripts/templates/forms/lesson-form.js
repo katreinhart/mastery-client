@@ -3,6 +3,7 @@ const lessonFormTemplate = (courseId, unitId, lesson) => {
   const { title, content } = lesson ? lesson : { title: '', content: '' }
   const id = lesson ? 'edit' : 'create' 
   const displayTitle = lesson ? 'Edit Lesson' : 'Create a New Lesson'
+  
 
   return `<div class="container">
     <div class="row">

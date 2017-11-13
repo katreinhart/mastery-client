@@ -1,6 +1,6 @@
 displayOneUnit = (courseId, unitId) => {
   CourseUnit.show(courseId, unitId).then(result => {
-    window.location.hash = `#/courses/${courseId}/units/${unitId}`
+    updateHash(`#/courses/${courseId}/units/${unitId}`)
     const [unit] = result.data.unit
     UnitLesson.index(unitId).then(result => {
       const lessons = result.data.lessons
@@ -16,29 +16,32 @@ displayOneUnit = (courseId, unitId) => {
 displayUnitForm = (courseId, unitId) => {
   if(unitId) {
     CourseUnit.show(courseId, unitId).then(result => {
-      window.location.hash = `#/courses/${courseId}/units/${unitId}/edit`
+      updateHash(`#/courses/${courseId}/units/${unitId}/edit`)
       const [unit] = result.data.unit
       mainContent.innerHTML = unitFormTemplate(courseId, unit)
-      document.getElementById('edit').addEventListener('submit', (e) => {
-        e.preventDefault()
-        const newTitle = document.getElementById('unitTitle').value
-        const newSummary = document.getElementById('unitSummary').value
-        CourseUnit.update(courseId, unitId, { title: newTitle, summary: newSummary }).then(response => {
-          const { unit } = response.data
-          displayOneUnit(courseId, unit.id)
-        })
-      })
+      document.getElementById('edit').addEventListener('submit', handleUnitFormSubmit)
     })
   } else {
     mainContent.innerHTML = unitFormTemplate(courseId)
-    document.getElementById('create').addEventListener('submit', (e) => {
-      e.preventDefault()
-      const title = document.getElementById('unitTitle').value
-      const summary = document.getElementById('unitSummary').value
-      CourseUnit.create(courseId, { title, summary}).then(response => {
-        const { unit } = response.data
-        displayOneUnit(courseId, unit.id)
-      })
+    document.getElementById('create').addEventListener('submit', handleUnitFormSubmit)
+  }
+}
+
+handleUnitFormSubmit = (e) => {
+  e.preventDefault()
+  const title = document.getElementById('unitTitle').value
+  const summary = document.getElementById('unitSummary').value
+  const unitId = parseHash()[3]
+  const courseId = parseHash()[1]
+  if(unitId === 'new') {
+    CourseUnit.create(courseId, { title, summary}).then(response => {
+      const { unit } = response.data
+      displayOneUnit(courseId, unit.id)
+    })
+  } else {
+    CourseUnit.update(courseId, unitId, { title, summary }).then(response => {
+      const { unit } = response.data
+      displayOneUnit(courseId, unit.id)
     })
   }
 }
