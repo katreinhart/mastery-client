@@ -3,7 +3,7 @@ const singleClassTemplate = (data, roster) => {
   const teacherName = data.teacher_name
 
   const studentRoster = roster
-                   ? roster.map(student => `<li class="list-group-item"><a href="#/students/${student.id}">${student.preferred_name} ${student.last_name}</a></li>`).join('')
+                   ? roster.map(student => `<li class="list-group-item"><a href="#/students/${student.id}" class="deep-purple-text">${student.preferred_name} ${student.last_name}</a></li>`).join('')
                    : ''
 
   return `
@@ -15,14 +15,14 @@ const singleClassTemplate = (data, roster) => {
         <div class="col-sm-4 col-lg-3">
           <ul class="list-group">
             ${studentRoster}
-            <li class="list-group-item list-group-item-info"><a href="#/classes/${class_id}/students/new">Add New Student</a></li>
+            <li class="list-group-item list-group-item-info"><a href="#/classes/${class_id}/students/new" class="indigo-text"><strong>Add New Student</strong></a></li>
           </ul>
-          <a href="#/classes" class="btn btn-secondary btn-block">Back to Classes</a>
+          <a href="#/classes" class="btn lime darken-2 btn-block">Back to Classes</a>
         </div>
         <div class="col-sm-8 col-lg-9">
           <h4>${teacherName}</h4>
           <p>Future stuff on class units and lessons will go here... </p>
-          <a href="#/classes/${class_id}/edit" class="btn btn-info">Edit class info</a>
+          <a href="#/classes/${class_id}/edit" class="btn blue darken-4">Edit class info</a>
         </div>
       </div>
     </div>
@@ -30,14 +30,15 @@ const singleClassTemplate = (data, roster) => {
 }
 
 const deleteClassModalButton = (disable) => {
-  const disabledInfo = disable ? 'disabled aria-disabled="true" title="Cannot delete class with enrolled students"' : ''
+  const disabledInfo = disable ? 'disabled aria-disabled="true" title="Cannot delete class with enrolled students" tabindex="-1"' : ''
   const buttonText = disable ? 'Delete' : 'Delete this class'
+  const buttonExplanation = disable? '<small>Cannot delete course with dependent lessons</small>' : ''
 
   return `<!-- Button trigger modal -->
-    <button type="button" ${disabledInfo} class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteClass">
+    <button type="button" ${disabledInfo} class="btn orange darken-2" data-toggle="modal" data-target="#confirmDeleteClass">
       ${buttonText}
     </button>
-
+    ${buttonExplanation}
   <!-- Modal -->
   <div class="modal fade" id="confirmDeleteClass" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteClassModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -52,8 +53,8 @@ const deleteClassModalButton = (disable) => {
           Are you sure you want to delete this class?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal" id="confirm-delete">Delete</button>
+          <button type="button" class="btn gray" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn orange darken-2" data-dismiss="modal" id="confirm-delete">Delete</button>
         </div>
       </div>
     </div>

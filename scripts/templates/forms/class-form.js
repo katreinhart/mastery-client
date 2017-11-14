@@ -10,7 +10,7 @@ const classFormTemplate = (teachers, classObj) => {
   
   return `<div class="container">
     <div class="row">
-      <div class="col-sm-2"></div>
+      <div class="col-sm-2"></div> 
       <div class="col-sm-8">
         <h3>${header}</h3>
           <form id="${id}">
@@ -22,7 +22,7 @@ const classFormTemplate = (teachers, classObj) => {
               <option selected disabled>Select a teacher</option>
               ${teacherSelection}
             </select>
-            <button type="submit" class="btn blue">${buttonText}</button>
+            <button type="submit" class="btn blue darken-4">${buttonText}</button>
             <span id="delete-button"></span>
           </form>
       </div>
