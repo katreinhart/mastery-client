@@ -22,7 +22,7 @@ const coursesTemplate = (courses) => {
 
   const goHomeButton = document.createElement('a')
   goHomeButton.textContent = "Back to home"
-  goHomeButton.classList = 'btn btn-outline-warning home-button'
+  goHomeButton.classList = 'btn orange darken-2 home-button'
   goHomeButton.href = '#'
   
   courseList.appendChild(newCourseButton)

@@ -4,7 +4,8 @@ const singleCourseTemplate = (course, units) => {
   return `
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 text-center mt-3 mb-2"><h2>${title}</h2></div>
+      <div class="col-sm-3 mt-4">Course: ${course.title}</div>
+      <div class="col-sm-6 text-center mt-3 mb-2"><h2>${title}</h2></div>
     </div>
     <div class="row">
       <div class="col-sm-4 col-lg-3">
