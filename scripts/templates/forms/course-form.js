@@ -16,7 +16,7 @@ const courseFormTemplate = (course) => {
             </div>
             <div class="form-group">
               <label for="courseDescription">Course Description</label>
-              <textarea required class="form-control" id="courseDescription" style="height: 100px">${description}</textarea>
+              <textarea required class="form-control" id="courseDescription" style="height:100px">${description}</textarea>
             </div>
             <button type="submit" class="btn blue darken-4">${buttonText}</button>
             <span id="delete-button"></span>

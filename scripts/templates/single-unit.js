@@ -17,11 +17,11 @@ const singleUnitTemplate = (unit, lessons) => {
             ${lessonList}
             <li class="list-group-item list-group-item-info"><a href="#/courses/${unit.course_id}/units/${id}/lessons/new">Add New Lesson</a></li>
           </ul>
-          <a href="#/courses/${unit.course_id}" class="btn btn-secondary btn-block">Back to Course</a>
+          <a href="#/courses/${unit.course_id}" class="btn lime darken-2 btn-block">Back to Course</a>
         </div>
         <div class="col-sm-6 col-lg-8">
           <p>${summary}</p>
-          <a href="#/courses/${unit.course_id}/units/${id}/edit" class="btn btn-primary">Edit Unit</a>
+          <a href="#/courses/${unit.course_id}/units/${id}/edit" class="btn blue darken-4">Edit Unit</a>
         </div>
       </div>
       
@@ -34,7 +34,7 @@ const deleteUnitModalButton = (disable) => {
   const buttonText = disable ? 'Delete' : 'Delete this unit'
 
   return `<!-- Button trigger modal -->
-    <button type="button" ${disabledInfo} class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteUnit">
+    <button type="button" ${disabledInfo} class="btn orange darken-2" data-toggle="modal" data-target="#confirmDeleteUnit">
       ${buttonText}
     </button>
     
@@ -52,8 +52,8 @@ const deleteUnitModalButton = (disable) => {
             Are you sure you want to delete this unit?
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-danger" data-dismiss="modal" id="confirm-delete">Delete</button>
+            <button type="button" class="btn gray" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn orange darken-2" data-dismiss="modal" id="confirm-delete">Delete</button>
           </div>
         </div>
       </div>

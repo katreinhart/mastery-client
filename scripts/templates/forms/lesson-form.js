@@ -17,9 +17,9 @@ const lessonFormTemplate = (courseId, unitId, lesson) => {
           </div>
           <div class="form-group">
             <label for="lessonContent">Lesson Content</label> <span class="small"><a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> supported</span>
-            <textarea required class="form-control" id="lessonContent" rows="10">${content}</textarea>
+            <textarea required class="form-control" id="lessonContent" style="height:150px">${content}</textarea>
           </div>
-          <button type="submit" id="submit-lesson" class="btn btn-primary">${buttonText}</button>
+          <button type="submit" id="submit-lesson" class="btn blue darken-4">${buttonText}</button>
           <span id="delete-button"></span>
         </form>
       </div>

@@ -16,9 +16,9 @@ const unitFormTemplate = (courseId, unit) => {
           </div>
           <div class="form-group">
             <label for="unitSummary">Unit Summary</label>
-            <textarea required class="form-control" id="unitSummary" rows="3">${summary}</textarea>
+            <textarea required class="form-control" id="unitSummary" style="height:150px">${summary}</textarea>
           </div>
-          <button type="submit" class="btn btn-primary">${buttonText}</button>
+          <button type="submit" class="btn blue darken-4">${buttonText}</button>
           <span id="delete-button"></span>
         </form>
       </div>
