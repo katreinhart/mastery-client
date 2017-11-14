@@ -42,30 +42,31 @@ const displayTeacherForm = (teacherId) => {
           })
         })
       }
-      document.getElementById('edit').addEventListener('submit', e => {
-        e.preventDefault()
-        const first_name = document.getElementById('teacherFName').value
-        const last_name = document.getElementById('teacherLName').value
-        const preferred_name = document.getElementById('teacherPName').value
-    
-        Teachers.create({ first_name, last_name, preferred_name }).then(result => {
-          const { teacher } = result.data
-          displayOneTeacher(teacher.id)
-        })
-      })
+      document.getElementById('edit').addEventListener('submit',handleTeacherFormSubmit)
     })
   } else {
     mainContent.innerHTML = teacherFormTemplate()
-    document.getElementById('create').addEventListener('submit', e => {
-      e.preventDefault()
-      const first_name = document.getElementById('teacherFName').value
-      const last_name = document.getElementById('teacherLName').value
-      const preferred_name = document.getElementById('teacherPName').value
-  
-      Teachers.create({ first_name, last_name, preferred_name }).then(result => {
-        const { teacher } = result.data
-        displayOneTeacher(teacher.id)
-      })
+    document.getElementById('create').addEventListener('submit', handleTeacherFormSubmit)
+  }  
+}
+
+const handleTeacherFormSubmit = (e) => {
+  e.preventDefault()
+  const id = parseHash()[1]
+
+  const first_name = document.getElementById('teacherFName').value
+  const last_name = document.getElementById('teacherLName').value
+  const preferred_name = document.getElementById('teacherPName').value
+
+  if(id === 'new') {
+    Teachers.create({ first_name, last_name, preferred_name }).then(result => {
+      const { teacher } = result.data
+      displayOneTeacher(teacher.id)
+    })
+  } else {
+    Teachers.update(id, { first_name, last_name, preferred_name }).then(result => {
+      const { teacher } = result.data
+      displayOneTeacher(teacher.id)
     })
   }
   
