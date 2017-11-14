@@ -12,13 +12,13 @@ const courseFormTemplate = (course) => {
           <form id="${id}">
             <div class="form-group">
               <label for="courseTitle">Course Title</label>
-              <input required type="text" class="form-control" id="courseTitle" aria-describedby="titleHelp" placeholder="e.g. Earth Science" value="${title}">
+              <input required type="text" class="form-control" id="courseTitle" aria-describedby="titleHelp" value="${title}">
             </div>
             <div class="form-group">
               <label for="courseDescription">Course Description</label>
-              <textarea required class="form-control" id="courseDescription" rows="3">${description}</textarea>
+              <textarea required class="form-control" id="courseDescription" style="height: 100px">${description}</textarea>
             </div>
-            <button type="submit" class="btn btn-primary">${buttonText}</button>
+            <button type="submit" class="btn blue darken-4">${buttonText}</button>
             <span id="delete-button"></span>
           </form>
       </div>

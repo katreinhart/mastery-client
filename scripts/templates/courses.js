@@ -7,7 +7,7 @@ const coursesTemplate = (courses) => {
     courseDiv.classList = 'col-sm-6 col-md-4'
 
     const courseButton = document.createElement('a')
-    courseButton.classList = 'btn btn-info course-button'
+    courseButton.classList = 'btn lime darken-3 course-button'
     courseButton.textContent = course.title
     courseButton.href = `#/courses/${course.id}`
 
@@ -17,12 +17,12 @@ const coursesTemplate = (courses) => {
   })
   const newCourseButton = document.createElement('a')
   newCourseButton.textContent = "Add new course"
-  newCourseButton.classList = 'btn btn-success course-button'
+  newCourseButton.classList = 'btn blue darken-4 course-button'
   newCourseButton.href = `#/courses/new`
 
   const goHomeButton = document.createElement('a')
   goHomeButton.textContent = "Back to home"
-  goHomeButton.classList = 'btn btn-warning course-button'
+  goHomeButton.classList = 'btn orange darken-2 course-button'
   goHomeButton.href = '#'
   
   courseList.appendChild(newCourseButton)

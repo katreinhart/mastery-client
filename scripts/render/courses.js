@@ -26,10 +26,8 @@ const displayCourseForm = (id) => {
       const [ { data: {course} }, { data: {units} } ] = result
       mainContent.innerHTML = courseFormTemplate(course)
       if(units.length) {
-        console.log('may not delete, has units')
         document.getElementById('delete-button').innerHTML = deleteCourseModalButton(true)
       } else {
-        console.log('may delete, has no units')
         document.getElementById('delete-button').innerHTML = deleteCourseModalButton(false)
         document.getElementById('confirm-delete').addEventListener('click', (e) => {
           Course.delete(course.id).then(result => {
