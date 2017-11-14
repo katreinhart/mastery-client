@@ -1,4 +1,4 @@
-displayOneLesson = (courseId, unitId, lessonId) => {
+const displayOneLesson = (courseId, unitId, lessonId) => {
   updateHash(`#/courses/${courseId}/units/${unitId}/lessons/${lessonId}`)
   UnitLesson.show(unitId, lessonId).then(result => {
     const { lesson } = result.data
@@ -6,7 +6,7 @@ displayOneLesson = (courseId, unitId, lessonId) => {
   })
 }
 
-displayLessonForm = (courseId, unitId, lessonId) => {
+const displayLessonForm = (courseId, unitId, lessonId) => {
   if(lessonId) {
     UnitLesson.show(unitId, lessonId).then(result => {
       const { lesson } = result.data

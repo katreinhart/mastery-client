@@ -1,4 +1,4 @@
-displayAllStudents = () => {
+const displayAllStudents = () => {
   nav.init()
   const studentPromise = Student.index()
   const classPromise = Class.index()
@@ -9,7 +9,7 @@ displayAllStudents = () => {
   })
 }
 
-displayOneStudent = (id) => {
+const displayOneStudent = (id) => {
   Student.show(id).then(result => {
     const { student } = result.data
     Class.show(student.class_id).then(result => {
@@ -22,8 +22,7 @@ displayOneStudent = (id) => {
   }) 
 }
 
-
-handleStudentFormSubmit = (e) => {
+const handleStudentFormSubmit = (e) => {
   e.preventDefault()
   const preferred_name = document.getElementById('studentPName').value
   const last_name = document.getElementById('studentLName').value
@@ -41,12 +40,12 @@ handleStudentFormSubmit = (e) => {
   }
 }
 
-displayNewStudentForm = (classId) => {
+const displayNewStudentForm = (classId) => {
   mainContent.innerHTML = studentFormTemplate(classId)
   document.getElementById('create').addEventListener('submit', handleStudentFormSubmit)
 }
 
-displayEditStudentForm = (studentId) => {
+const displayEditStudentForm = (studentId) => {
   const classesPromise = Class.index()
   const studentPromise = Student.show(studentId)
   Promise.all([classesPromise, studentPromise]).then(result => {

@@ -1,4 +1,4 @@
-displayCourses = (courses) => {
+const displayCourses = (courses) => {
   nav.init()
   Course.index().then(result => {
     const { courses } = result.data
@@ -7,7 +7,7 @@ displayCourses = (courses) => {
   })
 }
 
-displayOneCourse = (id) => {
+const displayOneCourse = (id) => {
   nav.init()
   Course.getOne(id).then(result => {
     const { course } = result.data
@@ -18,7 +18,7 @@ displayOneCourse = (id) => {
   })
 }
 
-displayCourseForm = (id) => {
+const displayCourseForm = (id) => {
   if(id) {
     const coursePromise = Course.getOne(id)
     const unitPromise = CourseUnit.index(id)
@@ -46,7 +46,7 @@ displayCourseForm = (id) => {
   }
 }
 
-handleSubmitCourseForm = (e) => {
+const handleSubmitCourseForm = (e) => {
   e.preventDefault()
   const title = document.getElementById('courseTitle').value
   const description = document.getElementById('courseDescription').value

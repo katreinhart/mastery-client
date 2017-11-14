@@ -1,4 +1,4 @@
-displayClasses = () => {
+const displayClasses = () => {
   Class.index().then(result => {
     const { classes } = result.data
     mainContent.innerHTML = ''
@@ -6,7 +6,7 @@ displayClasses = () => {
   })
 }
 
-displayOneClass = (classId) => {
+const displayOneClass = (classId) => {
   Class.show(classId).then(result => {
     Class.getRoster(classId).then(rosterResult => {
       const { roster } = rosterResult.data
@@ -16,7 +16,7 @@ displayOneClass = (classId) => {
   })
 }
 
-displayClassForm = (id) => {
+const displayClassForm = (id) => {
   const classPromise = id ? Class.show(id) : Class.index()
   const teacherPromise = Teachers.index()
 
@@ -42,7 +42,7 @@ displayClassForm = (id) => {
           })
         }
       })
-      
+      const 
       document.getElementById('edit').addEventListener('submit', handleClassFormSubmit)  
     }
   })

@@ -1,4 +1,4 @@
-displayOneUnit = (courseId, unitId) => {
+const displayOneUnit = (courseId, unitId) => {
   CourseUnit.show(courseId, unitId).then(result => {
     const [unit] = result.data.unit
     UnitLesson.index(unitId).then(result => {
@@ -8,7 +8,7 @@ displayOneUnit = (courseId, unitId) => {
   })
 }
 
-displayUnitForm = (courseId, unitId) => {
+const displayUnitForm = (courseId, unitId) => {
   if(unitId) {
     CourseUnit.show(courseId, unitId).then(result => {
       const [unit] = result.data.unit
@@ -34,7 +34,7 @@ displayUnitForm = (courseId, unitId) => {
   }
 }
 
-handleUnitFormSubmit = (e) => {
+const handleUnitFormSubmit = (e) => {
   e.preventDefault()
   const title = document.getElementById('unitTitle').value
   const summary = document.getElementById('unitSummary').value
