@@ -69,6 +69,21 @@ const handleHashChange = () => {
         displayEditStudentForm(hash[1])
       }
     }
+  } else if (hash[0] === 'teachers') {
+    if(hash.length === 1) {
+      displayAllTeachers()
+    } else if (hash.length === 2) {
+      if(hash[1] === 'new') {
+        displayTeacherForm()
+      } else {
+        displayOneTeacher(hash[1])
+      }
+      
+    } else if (hash.length === 3) {
+      if(hash[2] === 'edit') {
+        displayTeacherForm(hash[1])
+      }
+    }
   }
 }
 

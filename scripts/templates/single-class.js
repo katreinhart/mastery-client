@@ -25,13 +25,12 @@ const singleClassTemplate = (data, roster) => {
           <a href="#/classes/${class_id}/edit" class="btn btn-info">Edit class info</a>
         </div>
       </div>
-      
     </div>
   `
 }
 
 const deleteClassModalButton = (disable) => {
-  const disabledInfo = disable ? 'disabled aria-disabled="true" title="Cannot delete unit with dependent lessons"' : ''
+  const disabledInfo = disable ? 'disabled aria-disabled="true" title="Cannot delete class with enrolled students"' : ''
   const buttonText = disable ? 'Delete' : 'Delete this class'
 
   return `<!-- Button trigger modal -->
