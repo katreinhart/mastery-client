@@ -23,14 +23,14 @@ const studentFormTemplate = (courseId, student, classes) => {
         <form id="${formId}">
           <div class="form-group">
             <label for="studentPName">Preferred/First Name</label>
-            <input required type="text" class="form-control" id="studentPName" aria-describedby="titleHelp" value="${preferred_name}">
+            <input required type="text" class="form-control" id="studentPName" value="${preferred_name}">
           </div>
           <div class="form-group">
             <label for="studentLName">Last Name</label>
-            <input required class="form-control" id="studentLName" rows="3" value="${last_name}">
+            <input required type="text" class="form-control" id="studentLName" value="${last_name}">
           </div>
           ${selectionDiv}
-          <button type="submit" class="btn btn-primary">${buttonText}</button>
+          <button type="submit" class="btn blue darken-4">${buttonText}</button>
           <span id="delete-button"></span>
         </form>
       </div>

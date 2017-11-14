@@ -13,11 +13,11 @@ const singleStudentTemplate = (student, group) => {
           <li class="list-group-item">unit 2</li>
           <li class="list-group-item">unit 3</li>
         </ul>
-        <a href="#/classes/${group.class_id}" class="btn btn-secondary btn-block">Back to Class</a>
+        <a href="#/classes/${group.class_id}" class="btn lime darken-2 btn-block">Back to Class</a>
       </div>
       <div class="col-sm-8 col-lg-9">
-        <p><a href="#/classes/${group.class_id}">${teacherName}'s ${groupName}</a></p>
-        <p><a href="#/students/${student.id}/edit" class="btn btn-info">Edit student info</a></p>
+        <p><strong><a class="deep-purple-text" href="#/classes/${group.class_id}">${teacherName}'s ${groupName}</a></strong></p>
+        <p><a href="#/students/${student.id}/edit" class="btn blue darken-4">Edit student info</a></p>
       </div>
     </div>
   </div>
@@ -26,7 +26,7 @@ const singleStudentTemplate = (student, group) => {
 
 const deleteStudentButton = () => {
   return `<!-- Button trigger modal -->
-  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteStudent">
+  <button type="button" class="btn orange darken-2" data-toggle="modal" data-target="#confirmDeleteStudent">
     Delete Student
   </button>
   
@@ -44,8 +44,8 @@ const deleteStudentButton = () => {
           Are you sure you want to delete this Student?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal" id="confirm-delete">Delete</button>
+          <button type="button" class="btn gray" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn orange darken-2" data-dismiss="modal" id="confirm-delete">Delete</button>
         </div>
       </div>
     </div>
