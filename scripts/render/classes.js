@@ -42,7 +42,6 @@ const displayClassForm = (id) => {
           })
         }
       })
-      const 
       document.getElementById('edit').addEventListener('submit', handleClassFormSubmit)  
     }
   })

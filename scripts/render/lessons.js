@@ -1,5 +1,5 @@
 const displayOneLesson = (courseId, unitId, lessonId) => {
-  updateHash(`#/courses/${courseId}/units/${unitId}/lessons/${lessonId}`)
+  // updateHash(`#/courses/${courseId}/units/${unitId}/lessons/${lessonId}`)
   UnitLesson.show(unitId, lessonId).then(result => {
     const { lesson } = result.data
     mainContent.innerHTML = singleLessonTemplate(lesson)

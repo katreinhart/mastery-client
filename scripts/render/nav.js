@@ -1,6 +1,5 @@
 window.nav = {
   init() {
-    const navDiv = document.getElementById('navigation')
-    navDiv.innerHTML = navTemplate()
+    document.getElementById('navigation').innerHTML = navTemplate()
   }
 }
