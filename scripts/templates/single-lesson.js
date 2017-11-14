@@ -6,7 +6,7 @@ const singleLessonTemplate = (lesson, questions) => {
   const { id, title, content } = lesson 
   const htmlContent = converter.makeHtml(content)
 
-  const questionsHeader = questions.length ? '<li class="list-group-item list-group-item-info">Check Your Understanding</li>' : ''
+  const questionsHeader = questions.length ? '<li class="list-group-item list-group-item-info">Lesson Questions</li>' : ''
   const questionsElement = questions.map(question => `<li class="list-group-item">${question.question}</li>`).join('')
 
   return `

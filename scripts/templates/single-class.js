@@ -32,7 +32,7 @@ const singleClassTemplate = (data, roster) => {
 const deleteClassModalButton = (disable) => {
   const disabledInfo = disable ? 'disabled aria-disabled="true" title="Cannot delete class with enrolled students" tabindex="-1"' : ''
   const buttonText = disable ? 'Delete' : 'Delete this class'
-  const buttonExplanation = disable? '<small>Cannot delete course with dependent lessons</small>' : ''
+  const buttonExplanation = disable? '<small>Cannot delete class with enrolled students</small>' : ''
 
   return `<!-- Button trigger modal -->
     <button type="button" ${disabledInfo} class="btn orange darken-2" data-toggle="modal" data-target="#confirmDeleteClass">
