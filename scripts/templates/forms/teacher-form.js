@@ -18,11 +18,11 @@ const teacherFormTemplate = (teacher) => {
           </div>
           <div class="form-group">
             <label for="teacherLName">Last Name</label>
-            <input required class="form-control" id="teacherLName" rows="3" value="${last_name}">
+            <input required type="text" class="form-control" id="teacherLName" value="${last_name}">
           </div>
           <div class="form-group">
           <label for="teacherPName">Preferred Name</label>
-          <input required class="form-control" id="teacherPName" rows="3" value="${preferred_name}">
+          <input required type="text" class="form-control" id="teacherPName" value="${preferred_name}">
         </div>
           <button type="submit" class="btn btn-primary">${buttonText}</button>
           <span id="delete-button"></span>

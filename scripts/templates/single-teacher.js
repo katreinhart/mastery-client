@@ -8,16 +8,17 @@ const singleTeacherTemplate = (teacher, classes) => {
     </div>
     <div class="row">
       <div class="col-sm-3 col-lg-2">
+        <img src="http://style.anu.edu.au/_anu/4/images/placeholders/person.png" width=150 height=150 alt="Picture of ${teacher.preferred_name}">
         <p>
-          <a href="#/teachers/${teacher.id}/edit" class="btn btn-info">Edit teacher info</a>
+          <a href="#/teachers/${teacher.id}/edit" class="btn blue darken-4 btn-block">Edit</a>
         </p>
       </div>
       <div class="col-sm-6 col-lg-8">
         <ul class="list-group">
           ${list}
         </ul>
-        <a href="#/classes/new" class="btn btn-primary btn-block">Add a New Class</a>
-        <a href="#/teachers/" class="btn btn-secondary btn-block">Back to Teachers</a>
+        <a href="#/classes/new" class="btn blue darken-4 btn-block">Add a New Class</a>
+        <a href="#/teachers/" class="btn lime darken-2 btn-block">Back to Teachers</a>
       </div>
     </div>
   </div>
@@ -25,14 +26,15 @@ const singleTeacherTemplate = (teacher, classes) => {
 }
 
 const teacherDeleteButton = (disable) => {
-  const disabledInfo = disable ? 'disabled aria-disabled="true" title="Cannot delete teacher while assigned to classes"' : ''
+  const disabledInfo = disable ? 'disabled aria-disabled="true" title="Cannot delete teacher while assigned to classes" tabindex="-1"' : ''
   const buttonText = disable ? 'Delete' : 'Delete this teacher'
+  const buttonExplanation = disable? '<small>Cannot delete teacher while assigned to classes</small>' : ''
 
   return `<!-- Button trigger modal -->
     <button type="button" ${disabledInfo} class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteTeacher">
       ${buttonText}
     </button>
-  
+    ${buttonExplanation}
   <!-- Modal -->
   <div class="modal fade" id="confirmDeleteTeacher" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteTeacherModal" aria-hidden="true">
     <div class="modal-dialog" role="document">
