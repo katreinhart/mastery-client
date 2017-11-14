@@ -8,7 +8,7 @@ const singleTeacherTemplate = (teacher, classes) => {
     </div>
     <div class="row">
       <div class="col-sm-3 col-lg-2">
-        <img src="http://style.anu.edu.au/_anu/4/images/placeholders/person.png" width=150 height=150 alt="Picture of ${teacher.preferred_name}">
+        <img src="http://style.anu.edu.au/_anu/4/images/placeholders/person.png" width=100% alt="Picture of ${teacher.preferred_name}">
         <p>
           <a href="#/teachers/${teacher.id}/edit" class="btn blue darken-4 btn-block">Edit</a>
         </p>

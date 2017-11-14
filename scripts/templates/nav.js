@@ -21,6 +21,9 @@ const navTemplate = () => {
         <a class="nav-link" href="#/students">Students</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="#/teachers">Teachers</a>
+      </li>
+      <li class="nav-item">
         <a class="disabled nav-link" href="#/student-view">Student View</a>
       </li>
       <li class="nav-item">
