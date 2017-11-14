@@ -29,4 +29,3 @@ const coursesTemplate = (courses) => {
   courseList.appendChild(goHomeButton)
   return courseList
 }
-

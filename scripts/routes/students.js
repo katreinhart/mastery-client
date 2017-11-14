@@ -8,5 +8,7 @@ window.Student = {
   update(student_id, body) {
     return axios.put(`${baseURL}/students/${student_id}`, body)
   },
-  
+  delete(student_id) {
+    return axios.delete(`${baseURL}/students/${student_id}`)
+  }
 }

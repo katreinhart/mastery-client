@@ -23,3 +23,31 @@ const singleStudentTemplate = (student, group) => {
   </div>
 `
 }
+
+const deleteStudentButton = () => {
+  return `<!-- Button trigger modal -->
+  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteStudent">
+    Delete Student
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="confirmDeleteStudent" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteStudentModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmDeleteStudentModal">Are you sure?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this Student?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal" id="confirm-delete">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>`  
+}

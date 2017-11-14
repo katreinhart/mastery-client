@@ -28,3 +28,4 @@ const allStudentsTemplate = (students, classes) => {
     </div>
   `
 }
+
