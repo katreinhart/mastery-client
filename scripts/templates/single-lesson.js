@@ -1,10 +1,14 @@
-const singleLessonTemplate = (lesson) => {
+const singleLessonTemplate = (lesson, questions) => {
   const converter = new showdown.Converter()
   const hash = parseHash()
   hash.pop()
   const back = hash.join('/')
   const { id, title, content } = lesson 
   const htmlContent = converter.makeHtml(content)
+
+  const questionsHeader = questions.length ? '<li class="list-group-item list-group-item-info">Check Your Understanding</li>' : ''
+  const questionsElement = questions.map(question => `<li class="list-group-item">${question.question}</li>`).join('')
+
   return `
   <div class="container">
     <div class="row">
@@ -17,6 +21,10 @@ const singleLessonTemplate = (lesson) => {
       </div>
       <div class="col-sm-8 col-lg-9">
         <p>${htmlContent}</p>
+        <ul class="list-group">
+          ${questionsHeader}
+          ${questionsElement}
+        </ul>
         <a href="#/${back}/${id}/edit" class="btn blue darken-4">Edit lesson</a>
       </div>
     </div>

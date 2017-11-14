@@ -1,13 +1,16 @@
 const displayOneLesson = (courseId, unitId, lessonId) => {
   // updateHash(`#/courses/${courseId}/units/${unitId}/lessons/${lessonId}`)
-  UnitLesson.show(unitId, lessonId).then(result => {
-    const { lesson } = result.data
-    mainContent.innerHTML = singleLessonTemplate(lesson)
+  const lessonQuestionPromise = LessonQuestion.index(lessonId)
+  const unitLessonPromise = UnitLesson.show(unitId, lessonId)
+
+  Promise.all([lessonQuestionPromise, unitLessonPromise]).then(result => {
+    const [ { data: { questions }} ,  { data: { lesson }} ] = result
+    mainContent.innerHTML = singleLessonTemplate(lesson, questions)
   })
 }
 
 const displayLessonForm = (courseId, unitId, lessonId) => {
-  if(lessonId) {
+  if (lessonId) {
     UnitLesson.show(unitId, lessonId).then(result => {
       const { lesson } = result.data
       mainContent.innerHTML = lessonFormTemplate(courseId, unitId, lesson)
