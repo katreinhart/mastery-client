@@ -24,7 +24,7 @@ const teacherFormTemplate = (teacher) => {
           <label for="teacherPName">Preferred Name</label>
           <input required type="text" class="form-control" id="teacherPName" value="${preferred_name}">
         </div>
-          <button type="submit" class="btn btn-primary">${buttonText}</button>
+          <button type="submit" class="btn blue darken-4">${buttonText}</button>
           <span id="delete-button"></span>
         </form>
       </div>

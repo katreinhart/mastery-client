@@ -35,19 +35,3 @@ const mcQuestion = (question = { question: '', answer_a: '', answer_b: '', answe
     </div>
   `
 }
-
-const saQuestion = (question) => {
-  return `
-  <form>
-    <div class="form-group">
-      <label for="question-prompt">Question</label>
-      <input type="text" placeholder="Question prompt" value="${question.question}">
-    </div>
-    <div class="form-group">
-      <label for="question-prompt">A.</label>
-      <input type="text" placeholder="Sample correct answer" value="${question.answer}">
-    </div>
-    <button for="addQuestion" id="addSAQuestion">Save</button>
-  </form>
-    `
-}

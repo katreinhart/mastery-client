@@ -7,5 +7,8 @@ window.Question = {
   },
   update(id, body) {
     return axios.put(`${baseURL}/questions/${id}`, body)
+  },
+  delete(id) {
+    return axios.delete(`${baseURL}/questions/${id}`)
   }
 }

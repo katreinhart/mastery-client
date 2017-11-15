@@ -1,7 +1,7 @@
 const coursesTemplate = (courses) => {
   const courseList = document.createElement('DIV')
   courseList.classList.add('row')
-
+  
   courses.forEach(course => {
     const courseDiv = document.createElement('div')
     courseDiv.classList = 'col-sm-6 col-md-4'

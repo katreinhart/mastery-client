@@ -5,11 +5,9 @@ const lessonFormTemplate = (courseId, unitId, lesson) => {
   const displayTitle = lesson ? 'Edit Lesson' : 'Create a New Lesson'
   const addQuestionsButtons = lesson ? `<div class="form-group">
               <button class="btn lime darken-2" id="add-mc">+ Multiple Choice Question</button>
-              <button class="btn lime darken-2" id="add-sa">+ Short Answer Question</button>
               <button class="btn lime darken-2" id="add-lc">+ Lesson Content</button>
             </div>`
   : ''
-  
 
   return `<div class="container">
     <div class="row">
@@ -27,10 +25,9 @@ const lessonFormTemplate = (courseId, unitId, lesson) => {
           </div>
           <button type="submit" id="submit-lesson" class="btn blue darken-4">${buttonText}</button>
           <span id="delete-button"></span>
-          <div id="question-area"></div>
-          <div id="new-question-form"></div>
-          
         </form>
+        <div id="question-area"></div>
+        <div id="new-question-form"></div>
         ${addQuestionsButtons}
       </div>
     </div>

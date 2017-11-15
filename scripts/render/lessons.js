@@ -1,5 +1,5 @@
 const displayOneLesson = (courseId, unitId, lessonId) => {
-  // updateHash(`#/courses/${courseId}/units/${unitId}/lessons/${lessonId}`)
+  updateHash(`#/courses/${courseId}/units/${unitId}/lessons/${lessonId}`)
   const lessonQuestionPromise = LessonQuestion.index(lessonId)
   const unitLessonPromise = UnitLesson.show(unitId, lessonId)
 
@@ -26,7 +26,7 @@ const displayLessonForm = (courseId, unitId, lessonId) => {
       })
       document.getElementById('edit').addEventListener('submit', handleLessonFormSubmit)
       renderQuestions(questions)
-      renderAddQuestionForm()
+      addQuestionForm()
     })
   } else {
     mainContent.innerHTML = lessonFormTemplate(courseId, unitId)

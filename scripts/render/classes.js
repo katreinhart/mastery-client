@@ -1,4 +1,5 @@
 const displayClasses = () => {
+  updateHash(`#/classes`)
   nav.init()
   Class.index().then(result => {
     const { classes } = result.data
@@ -8,6 +9,7 @@ const displayClasses = () => {
 }
 
 const displayOneClass = (classId) => {
+  updateHash(`#/classes/${classId}`)
   Class.show(classId).then(result => {
     Class.getRoster(classId).then(rosterResult => {
       const { roster } = rosterResult.data

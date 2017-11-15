@@ -31,7 +31,7 @@ const teacherDeleteButton = (disable) => {
   const buttonExplanation = disable? '<small>Cannot delete teacher while assigned to classes</small>' : ''
 
   return `<!-- Button trigger modal -->
-    <button type="button" ${disabledInfo} class="btn btn-danger" data-toggle="modal" data-target="#confirmDeleteTeacher">
+    <button type="button" ${disabledInfo} class="btn orange darken-2" data-toggle="modal" data-target="#confirmDeleteTeacher">
       ${buttonText}
     </button>
     ${buttonExplanation}
@@ -49,8 +49,8 @@ const teacherDeleteButton = (disable) => {
           Are you sure you want to delete this Teacher?
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal" id="confirm-delete">Delete</button>
+          <button type="button" class="btn gray" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn orange darken-2" data-dismiss="modal" id="confirm-delete">Delete</button>
         </div>
       </div>
     </div>

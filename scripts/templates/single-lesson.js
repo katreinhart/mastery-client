@@ -25,7 +25,7 @@ const singleLessonTemplate = (lesson, questions) => {
           ${questionsHeader}
           ${questionsElement}
         </ul>
-        <a href="#/${back}/edit" class="btn blue darken-4">Edit lesson</a>
+        <a href="#/${back}/${id}/edit" class="btn blue darken-4">Edit lesson</a>
       </div>
     </div>
   </div>

@@ -31,7 +31,7 @@ const allTeachersTemplate = (teachers, classes) => {
           </li>
             ${teacherList}
           </ul>
-          <a class="btn btn-primary btn-block"href="#/teachers/new" >Add new teacher</a>
+          <a class="btn blue darken-4 btn-block"href="#/teachers/new" >Add new teacher</a>
         </div>
       </div>
     </div>

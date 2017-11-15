@@ -1,11 +1,11 @@
 homeView.init()
-updateHash('#/courses/1/units/1/lessons/2/edit')
+// updateHash('#/courses/1/units/1/lessons/2/edit')
 
 const handleHashChange = () => {
   const hash = window.location.hash.substr(1).split('/').filter(item => item !== "")
-  // if (!hash.length) homeView.init()
-  if (!hash.length) 
-  updateHash('#/courses/1/units/1/lessons/2/edit')
+  if (!hash.length) homeView.init()
+  // if (!hash.length) 
+  // updateHash('#/courses/1/units/1/lessons/2/edit')
 
   if(hash[0] === 'courses') {
     if (hash.length === 1) {
