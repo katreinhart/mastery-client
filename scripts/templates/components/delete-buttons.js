@@ -191,7 +191,7 @@ const deleteStudentButton = () => {
 
 const deleteQuestionButton = () => {
   return `<!-- Button trigger modal -->
-  <button type="button" class="btn orange darken-2" data-toggle="modal" data-target="#confirmDeleteQuestion">
+  <button type="button" class="btn btn-sm orange darken-2" data-toggle="modal" data-target="#confirmDeleteQuestion">
     Delete Question
   </button>
   

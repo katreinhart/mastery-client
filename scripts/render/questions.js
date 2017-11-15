@@ -59,7 +59,6 @@ const renderEditQuestionForm = (questionId) => {
     document.getElementById(`submit-edit-${questionId}`).addEventListener('click', handleEditQuestion)
     document.getElementById('delete-question').innerHTML = deleteQuestionButton()
     document.getElementById('confirm-delete-question').addEventListener('click', (e) => {
-      console.log('tryin to delete it yo')
       Question.delete(questionId).then(result => {
         displayOneLesson(parseHash()[1], parseHash()[3], lessonId)
       })
