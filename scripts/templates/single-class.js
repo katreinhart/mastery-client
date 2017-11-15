@@ -9,7 +9,7 @@ const singleClassTemplate = (data, roster) => {
   return `
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 text-center mt-3 mb-2"><h2>${name}</h2></div>
+        <div class="col-sm-12 text-center mt-3 mb-2"><h2 class="display-4">${name}</h2></div>
       </div>
       <div class="row">
         <div class="col-sm-4 col-lg-3">

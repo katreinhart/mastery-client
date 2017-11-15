@@ -12,8 +12,8 @@ const allTeachersTemplate = (teachers, classes) => {
   
   return `
     <div class="container">
-      <div class="row">
-        <h3>All Teachers</h3>
+      <div class="row text-center">
+        <h3 class="display-4">All Teachers</h3>
       </div>
       <div class="row">
         <div class="col-sm-2"><a class="btn lime darken-2 btn-block" href="#">Home</a></div>

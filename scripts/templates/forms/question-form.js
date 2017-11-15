@@ -1,7 +1,7 @@
 const mcQuestion = (question = { question: '', answer_a: '', answer_b: '', answer_c: '', answer_d: '', answer: '' }) => {
   const buttonId = question.id ? `submit-edit-${question.id}` : `addMCquestion`
   const correctAnswer = question.answer !== '' ? '' : question.answer 
-  
+   
   return `
     <div id="new-mc-container">
       <form id="new-mc">
@@ -11,7 +11,7 @@ const mcQuestion = (question = { question: '', answer_a: '', answer_b: '', answe
         </div>
         <div class="form-group">
           <label for="question-prompt">A.</label>
-          <input id="ans-a" required type="text" placeholder="Answer choice A" value="${question.answer_a}">
+          <input id="ans-a" required type="text" placeholder="Answer Choice A" value="${question.answer_a}">
         </div>
         <div class="form-group">
           <label for="question-prompt">B.</label>

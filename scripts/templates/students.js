@@ -12,7 +12,7 @@ const allStudentsTemplate = (students, classes) => {
   return `
     <div class="container">
       <div class="row">
-        <h3>All Students</h3>
+        <h3 class="display-4">All Students</h3>
       </div>
       <div class="row">
         <a class="btn lime darken-2" href="#">Home</a>

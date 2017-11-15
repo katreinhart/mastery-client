@@ -13,7 +13,7 @@ const singleLessonTemplate = (lesson, questions) => {
   <div class="container">
     <div class="row">
       <div class="col-sm-3 mt-4">Course | Unit | Lesson: ${lesson.title}</div>
-      <div class="col-sm-6 text-center mt-3 mb-2"><h3>${title}</h3></div>
+      <div class="col-sm-6 text-center mt-3 mb-2"><h3 class="display-4">${title}</h3></div>
     </div>
     <div class="row">
       <div class="col-sm-4 col-lg-3">

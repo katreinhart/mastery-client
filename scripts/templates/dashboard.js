@@ -2,6 +2,9 @@ const dashboardTemplate = () => {
   return `
   <div class="container">
     <div class="row dashboard">
+      <h1 class="display-3">Mastery LMS</h1>
+    </div>
+    <div class="row">
       <div class="col-sm-6">
         <a href="#/courses" class="btn blue darken-4 dashboard-button" id="dashboard-courses">Courses</a>
       </div>

@@ -1,6 +1,7 @@
 const classesTemplate = (classes) => {
   const classList = document.createElement('DIV')
   classList.classList.add('row')
+  classList.innerHTML += '<div class="col-12 text-center mt-3 mb-2"><h2 class="display-4">Classes</h2></div>'
 
   classes.forEach(group => {
     const classDiv = document.createElement('div')
