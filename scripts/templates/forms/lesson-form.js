@@ -29,8 +29,9 @@ const lessonFormTemplate = (courseId, unitId, lesson) => {
           <span id="delete-button"></span>
           <div id="question-area"></div>
           <div id="new-question-form"></div>
-          ${addQuestionsButtons}
+          
         </form>
+        ${addQuestionsButtons}
       </div>
     </div>
   </div>`

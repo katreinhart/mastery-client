@@ -1,5 +1,5 @@
 const mcQuestion = (question = { question: '', answer_a: '', answer_b: '', answer_c: '', answer_d: '', answer: '' }) => {
-  
+  const buttonId = question.id ? `submit-edit-${question.id}` : `addMCquestion`
   return `
     <div id="new-mc-container">
       <form id="new-mc">
@@ -30,7 +30,7 @@ const mcQuestion = (question = { question: '', answer_a: '', answer_b: '', answe
           <option value="C">C</option>
           <option value="D">D</option>
         </select>
-        <button class="btn lime darken-2" for="submit" id="addMCQuestion">Save</button>
+        <button class="btn lime darken-2" for="submit" id="${buttonId}">Save</button>
       </form>
     </div>
   `
