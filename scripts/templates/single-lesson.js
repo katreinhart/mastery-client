@@ -25,7 +25,7 @@ const singleLessonTemplate = (lesson, questions) => {
           ${questionsHeader}
           ${questionsElement}
         </ul>
-        <a href="#/${back}/${id}/edit" class="btn blue darken-4">Edit lesson</a>
+        <a href="#/${back}/edit" class="btn blue darken-4">Edit lesson</a>
       </div>
     </div>
   </div>
@@ -49,7 +49,7 @@ const deleteModalLessonButton = () => {
           </button>
         </div>
         <div class="modal-body">
-          Are you sure you want to delete this lesson?
+          Are you sure you want to delete this lesson? All associated questions will be lost. 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn gray" data-dismiss="modal">Cancel</button>

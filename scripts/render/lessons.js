@@ -11,8 +11,11 @@ const displayOneLesson = (courseId, unitId, lessonId) => {
 
 const displayLessonForm = (courseId, unitId, lessonId) => {
   if (lessonId) {
-    UnitLesson.show(unitId, lessonId).then(result => {
-      const { lesson } = result.data
+    const lessonQuestionPromise = LessonQuestion.index(lessonId)
+    const unitLessonPromise = UnitLesson.show(unitId, lessonId)
+
+    Promise.all([lessonQuestionPromise, unitLessonPromise]).then(result => {
+      const [{ data: { questions }}, { data: {lesson}} ] = result
       mainContent.innerHTML = lessonFormTemplate(courseId, unitId, lesson)
       document.getElementById('delete-button').innerHTML = deleteModalLessonButton()
       document.getElementById('confirm-delete').addEventListener('click', (e) => {
@@ -22,9 +25,9 @@ const displayLessonForm = (courseId, unitId, lessonId) => {
         })
       })
       document.getElementById('edit').addEventListener('submit', handleLessonFormSubmit)
-      
-      })
-    
+      renderQuestions(questions)
+      renderAddQuestionForm()
+    })
   } else {
     mainContent.innerHTML = lessonFormTemplate(courseId, unitId)
     document.getElementById('create').addEventListener('submit', handleLessonFormSubmit)

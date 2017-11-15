@@ -1,4 +1,5 @@
 const displayClasses = () => {
+  nav.init()
   Class.index().then(result => {
     const { classes } = result.data
     mainContent.innerHTML = ''
