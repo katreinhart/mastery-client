@@ -22,7 +22,9 @@ const displayLessonForm = (courseId, unitId, lessonId) => {
         })
       })
       document.getElementById('edit').addEventListener('submit', handleLessonFormSubmit)
-    })
+      
+      })
+    
   } else {
     mainContent.innerHTML = lessonFormTemplate(courseId, unitId)
     document.getElementById('create').addEventListener('submit', handleLessonFormSubmit)
