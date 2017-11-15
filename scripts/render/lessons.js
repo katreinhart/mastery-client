@@ -8,7 +8,7 @@ const displayOneLesson = (courseId, unitId, lessonId) => {
     mainContent.innerHTML = singleLessonTemplate(lesson, questions)
   })
 }
-
+  
 const displayLessonForm = (courseId, unitId, lessonId) => {
   if (lessonId) {
     const lessonQuestionPromise = LessonQuestion.index(lessonId)
