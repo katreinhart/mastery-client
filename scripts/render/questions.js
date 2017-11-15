@@ -57,6 +57,13 @@ const renderEditQuestionForm = (questionId) => {
     const myData = question[0]
     document.getElementById(`question-${questionId}`).innerHTML = mcQuestion(myData)
     document.getElementById(`submit-edit-${questionId}`).addEventListener('click', handleEditQuestion)
+    document.getElementById('delete-question').innerHTML = deleteQuestionButton()
+    document.getElementById('confirm-delete-question').addEventListener('click', (e) => {
+      console.log('tryin to delete it yo')
+      Question.delete(questionId).then(result => {
+        displayOneLesson(parseHash()[1], parseHash()[3], lessonId)
+      })
+    })
   })
 }
 
@@ -66,11 +73,11 @@ const renderQuestions = (questions) => {
   }).join('')
   document.getElementById('question-area').innerHTML = questionList
   questions.forEach(question => {
-    document.getElementById(`edit-question-${question.id}`).addEventListener('click', renderEditForm)
+    document.getElementById(`edit-question-${question.id}`).addEventListener('click', handleEditButtonClick)
   })
 }
 
-const renderEditForm = (e) => {
+const handleEditButtonClick = (e) => {
   e.preventDefault()
   const id = e.target.id
   const divId = e.target.id.split('-').slice(1,3).join('-')

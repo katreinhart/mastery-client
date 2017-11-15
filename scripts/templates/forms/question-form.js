@@ -30,7 +30,7 @@ const mcQuestion = (question = { question: '', answer_a: '', answer_b: '', answe
           <option value="C">C</option>
           <option value="D">D</option>
         </select>
-        <button class="btn lime darken-2" for="submit" id="${buttonId}">Save</button>
+        <button class="btn lime darken-2" for="submit" id="${buttonId}">Save</button><span id="delete-question"></span>
       </form>
     </div>
   `

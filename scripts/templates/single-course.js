@@ -22,35 +22,3 @@ const singleCourseTemplate = (course, units) => {
     </div>
   </div>`
 }
-
-const deleteCourseModalButton = (disable) => {
-  const disabledInfo = disable ? 'disabled aria-disabled="true" title="Cannot delete course with dependent lessons" tabindex="-1"' : ''
-  const buttonText = disable ? 'Delete' : 'Delete this course'
-  const buttonExplanation = disable? '<small>Cannot delete course with dependent lessons</small>' : ''
-
-  return `<!-- Button trigger modal -->
-    <button type="button" ${disabledInfo} class="btn orange darken-2" data-toggle="modal" data-target="#confirmDeleteCourse">
-      ${buttonText}
-    </button>
-    ${buttonExplanation}
-    <!-- Modal -->
-    <div class="modal fade" id="confirmDeleteCourse" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteCourseModal" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="confirmDeleteCourseModal">Are you sure?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Are you sure you want to delete this Course?
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn gray" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn orange darken-2" data-dismiss="modal" id="confirm-delete">Delete</button>
-          </div>
-        </div>
-      </div>
-    </div>`
-}

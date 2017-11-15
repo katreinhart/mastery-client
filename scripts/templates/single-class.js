@@ -28,36 +28,3 @@ const singleClassTemplate = (data, roster) => {
     </div>
   `
 }
-
-const deleteClassModalButton = (disable) => {
-  const disabledInfo = disable ? 'disabled aria-disabled="true" title="Cannot delete class with enrolled students" tabindex="-1"' : ''
-  const buttonText = disable ? 'Delete' : 'Delete this class'
-  const buttonExplanation = disable? '<small>Cannot delete class with enrolled students</small>' : ''
-
-  return `<!-- Button trigger modal -->
-    <button type="button" ${disabledInfo} class="btn orange darken-2" data-toggle="modal" data-target="#confirmDeleteClass">
-      ${buttonText}
-    </button>
-    ${buttonExplanation}
-  <!-- Modal -->
-  <div class="modal fade" id="confirmDeleteClass" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteClassModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="confirmDeleteClassModal">Are you sure?</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to delete this class?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn gray" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn orange darken-2" data-dismiss="modal" id="confirm-delete">Delete</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  `
-}
