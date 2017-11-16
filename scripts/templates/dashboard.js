@@ -2,7 +2,9 @@ const dashboardTemplate = () => {
   return `
   <div class="container">
     <div class="row dashboard">
-      <h1 class="display-3">Mastery LMS</h1>
+      <div class="col-12">
+        <h1 class="display-3 text-center indigo-text">Mastery LMS</h1>
+      </div>
     </div>
     <div class="row">
       <div class="col-sm-6">
