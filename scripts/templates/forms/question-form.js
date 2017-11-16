@@ -1,4 +1,4 @@
-const mcQuestion = (question = { question: '', answer_a: '', answer_b: '', answer_c: '', answer_d: '', answer: '' }) => {
+const mcQuestion = (question = { question: 'What is the Earth\'s inner core composed of?', answer_a: 'Liquid rock (magma)', answer_b: 'Solid iron', answer_c: 'Liquid iron', answer_d: 'Gooey chocolate', answer: 'B' }) => {
   const buttonId = question.id ? `submit-edit-${question.id}` : `addMCquestion`
   const correctAnswer = question.answer !== '' ? '' : question.answer 
    
