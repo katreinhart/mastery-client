@@ -45,6 +45,7 @@ NEXT STEPS:
 ### Next steps:  
 
 1. Implement front-end routing, either using a library or a scratch solution. 
+1. Use a bundler like Webpack or Browserify to bundle scripts instead of having 50+ ```<script>``` tags.
 1. Flesh out student view; allow student to easily see what units are next, what their recent scores are, and feedback on recent projects/assignments.
 1. Student record keeping
 1. Integration with Khan Academy API to allow educators to easily import curriculum and video lessons from the industry-standard open learning platform, while retaining tracking ability of the custom LMS.  
