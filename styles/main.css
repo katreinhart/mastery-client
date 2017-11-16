@@ -1,5 +1,16 @@
 body {
-  background-color: #fcfcff;
+  
+  background: url('../assets/bg.jpg');
+  background-color: rgba(205,205,255,0.6);
+  background-position-x: (-1);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.container {
+  background-color: rgba(255, 250, 244, 0.678);
+  min-height: 80vh;
 }
 
 #main-content {

@@ -8,6 +8,14 @@ Digital and "blended" learning is becoming more and more prevalent as more educa
 
 _Mastery_ is a Learning Management System aimed at intermediate to middle schools.  
 
+The admin view has 4 main resources: 
+- Courses
+- Classes
+- Students
+- Teachers
+
+_Courses_ contains all the curriculum, which is organized into Units and Lessons. 
+
 ### Goals: 
 1. Create a platform for middle school educators to manage and deliver curriculum online.
 1. Create a welcoming user experience where educators and students can easily find what they need and interact with the curriculum, not the tool. 

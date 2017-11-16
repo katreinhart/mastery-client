@@ -3,7 +3,7 @@ const dashboardTemplate = () => {
   <div class="container">
     <div class="row dashboard">
       <div class="col-12">
-        <h1 class="display-3 text-center indigo-text">Mastery LMS</h1>
+        <h1 class="display-3 text-center deep-orange-text">Mastery LMS</h1>
       </div>
     </div>
     <div class="row">
