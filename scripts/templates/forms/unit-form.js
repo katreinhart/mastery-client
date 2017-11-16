@@ -1,6 +1,6 @@
 const unitFormTemplate = (courseId, unit) => {
   const buttonText = unit ? 'Save' : 'Create'
-  const { title, summary } = unit ? unit : { title: '', summary: '' }
+  const { title, summary_text } = unit ? unit : { title: '', summary_text: '' }
   const id = unit ? 'edit' : 'create' 
   const displayTitle = unit ? 'Edit Unit' : 'Create a New Unit'
 
@@ -16,7 +16,7 @@ const unitFormTemplate = (courseId, unit) => {
           </div>
           <div class="form-group">
             <label for="unitSummary">Unit Summary</label>
-            <textarea required class="form-control" id="unitSummary" style="height:150px">${summary}</textarea>
+            <textarea required class="form-control" id="unitSummary" style="height:150px">${summary_text}</textarea>
           </div>
           <button type="submit" class="btn blue darken-4">${buttonText}</button>
           <span id="delete-button"></span>
