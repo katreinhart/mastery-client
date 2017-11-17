@@ -12,10 +12,10 @@ const navTemplate = () => {
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#/classes">Classes</a>
+        <a class="nav-link" href="#/courses">Courses</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#/courses">Courses</a>
+        <a class="nav-link" href="#/classes">Classes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#/students">Students</a>
