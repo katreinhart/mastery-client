@@ -13,7 +13,8 @@ const displayOneClass = (classId) => {
   Class.show(classId).then(result => {
     Class.getRoster(classId).then(rosterResult => {
       const { roster } = rosterResult.data
-      const [group] = result.data.group
+      // Be consistent wherever possible
+      const [ group ] = result.data.group
       mainContent.innerHTML = singleClassTemplate(group, roster)
     })
   })
@@ -23,6 +24,9 @@ const displayClassForm = (id) => {
   const classPromise = id ? Class.show(id) : Class.index()
   const teacherPromise = Teachers.index()
 
+  // Big code blocks like this -- with lots of if/else statements
+  // are prime for some refactoring! Separating out functions
+  // and returning early could help with clarity
   Promise.all([classPromise, teacherPromise]).then(result => {
     const [ { data: { group }}, { data: { teachers }}] = result
     if(!group) {
@@ -56,16 +60,11 @@ const handleClassFormSubmit = (e) => {
   const name = document.getElementById('className').value
   const teacher_id = document.getElementById('teacherId').value
 
-  if(id === 'new') {
-    Class.create({ name, teacher_id }).then(response => {
-      const [ group ] = response.data.group
-      displayOneClass(group.id)
-    })
-  } else {
-    Class.update(id, { name, teacher_id }).then(response => {
-      const [ group ] = response.data.group
-      displayOneClass(group.id)
-    })
-  }
+  // your way looks great! another way that could work...
+  const method = id === 'new' ? 'create' : 'update'
+  Class[method]({ name, teacher_id }).then(response => {
+    const [ group ] = response.data.group
+    displayOneClass(group.id)
+  })
 }
 
