@@ -6,9 +6,21 @@ LINKS:
 * [Heroku app](https://kat-mastery-server.herokuapp.com)
 * [Backend repo](https://github.com/katreinhart/mastery-server)
 
-_Mastery_ is a Learning Management System (LMS)targeted at 5th-8th grades.  
+_Mastery_ is a Learning Management System (LMS) targeted at 5th-8th grades.  
+
+### Motivation: 
 
 Digital and "blended" learning is becoming more and more prevalent as more educational institutions embrace the "inverted classroom" model or a blended approach to curriculum. Allowing students to have access to lecture videos, notes, and checkpoints outside of the classroom frees up class time for answering questions and doing projects. However, most existing LMS programs are built on aging technologies and are not very user-friendly or open-source. 
+
+### Installation and Setup:
+This project has two parts; client and server. To set up the backend locally, fork & clone the [Backend repo](https://github.com/katreinhart/mastery-server) and [Frontend repo](https://github.com/katreinhart/mastery-client) to your local machine.  
+
+#### Backend setup: 
+1. Navigate into the backend directory on your local machine. 
+1. You will need node and npm installed to run this project. For more information visit [nodejs.org](http://nodejs.org). 
+1. Run ```npm install``` to install dependencies for the project.
+1. Run ```npm run dev``` to run the development start script. The server will listen on port 3000.
+1. Navigate into the front end folder and open index.html in a browser. 
 
 ### Overview:
 
@@ -49,3 +61,4 @@ NEXT STEPS:
 1. Flesh out student view; allow student to easily see what units are next, what their recent scores are, and feedback on recent projects/assignments.
 1. Student record keeping
 1. Integration with Khan Academy API to allow educators to easily import curriculum and video lessons from the industry-standard open learning platform, while retaining tracking ability of the custom LMS.  
+1. Implement authorization/authentication.  

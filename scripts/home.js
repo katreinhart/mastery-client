@@ -1,7 +1,8 @@
 const localhostURL = 'http://localhost:3000'
-const herokuURL = 'https://kat-mastery-server.herokuapp.com'
+// const herokuURL = 'https://kat-mastery-server.herokuapp.com'
 
-const baseURL = window.location.href.includes('surge.sh') ? herokuURL : localhostURL
+// const baseURL = window.location.href.includes('surge.sh') ? herokuURL : localhostURL
+const baseURL = localhostURL
 
 const mainContent = document.getElementById('main-content')
 
